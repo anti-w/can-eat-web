@@ -1,7 +1,20 @@
+import { Heading } from "../../components/Heading";
+import { SectionBackground } from "../../components/SectionBackground";
+
 function Home() {
   return (
-    <div >
-        <h1> Teste </h1>
+    <div>
+      <SectionBackground
+      background={true}>
+        <Heading 
+          size="small"
+          >
+          Olá
+        </Heading>
+      </SectionBackground>
+
+      
+        
     </div>
   )
 }
