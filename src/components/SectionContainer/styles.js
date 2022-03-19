@@ -1,12 +1,8 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.section`
   ${({ theme }) => css`
-    max-width: 120rem;
-    margin: 0 auto;
-    padding: ${theme.spacings.large};
-    width: 100%;
-    overflow-x: hidden;
-    background: red;
+    max-width: 50%;
+    margin: 8rem auto 0;
   `}
 `;

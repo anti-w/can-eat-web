@@ -15,7 +15,10 @@ html {
 
 body {
     font-size: 1.6rem;
+    background: ${({ theme }) => theme.background} ;
     font-family: ${({ theme }) =>
-      theme.fonts.family.default} ;    
+      theme.fonts.family.default} ;
+    transition: all .5s linear
+        
 }
 `;
