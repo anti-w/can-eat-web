@@ -18,7 +18,9 @@ body {
     background: ${({ theme }) => theme.background} ;
     font-family: ${({ theme }) =>
       theme.fonts.family.default} ;
-    transition: all .5s linear
+    display: flex;
+    justify-content: center;
+    align-items: center;
         
 }
 `;

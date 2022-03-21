@@ -1,14 +1,12 @@
-export const theme = {
-  spacings: {
-    xsmal: '8rem',
-    small: '1.6rem',
-    medium: '2.4rem',
-    large: '3.2rem',
-    xlarge: '4.0rem',
-    xxlarge: '4.8rem',
-    huge: '5.6rem',
-    xhuge: '6.4rem',
-  },
+const spacings = {
+  xsmal: '8rem',
+  small: '1.6rem',
+  medium: '2.4rem',
+  large: '3.2rem',
+  xlarge: '4.0rem',
+  xxlarge: '4.8rem',
+  huge: '5.6rem',
+  xhuge: '6.4rem',
 };
 
 const fonts = {
@@ -26,21 +24,25 @@ const fonts = {
 };
 
 export const lightTheme = {
-  background: '#FEFEFF',
-  primaryText: '#000',
+  background: '#F2F2F2',
+  white: '#fff',
+  primaryText: '#1E1E1E',
   heading: '#25CA2B',
   buttonCall: '#F84D4D',
   fonts: fonts,
+  spacings: spacings,
   media: {
     lteMedium: '(max-width: 768px)',
   },
 };
 export const darkTheme = {
   background: '#1E1E1E',
-  primaryText: '#FEFEFF',
+  white: '#fff',
+  primaryText: '#bca79d',
   heading: '#FB6D1D',
   buttonCall: '#2BB415',
   fonts: fonts,
+  spacings: spacings,
   media: {
     lteMedium: '(max-width: 768px)',
   },
