@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Container as SectionContainer } from '../SectionContainer/styles';
 
-const menuVisible = (theme) => css`
+const menuVisible = () => css`
   visibility: visible;
   opacity: 1;
 `;
@@ -13,23 +13,23 @@ export const Container = styled.div`
     top: 0;
     left: 0;
     right: 0;
-    width: 100%;
     background: ${({ theme }) => theme.background};
 
     > ${SectionContainer} {
-      margin: 0
+      display: block;
+      margin: 0 2rem;
+      padding: 0;
     }
 
     @media ${theme.media.lteMedium} {
       height: 100vh;
       visibility: hidden;
       opacity: 0;
-      ${visible && menuVisible(theme)}
+      ${visible && menuVisible()}
 
       > ${SectionContainer} {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
         height: 100vh;
         align-items: center;
         overflow-y: auto;
@@ -54,7 +54,7 @@ export const Button = styled.div`
   ${({ theme, visible }) => css`
     z-index: 6;
     position: fixed;
-    color: ${({ theme }) => theme.heading};
+    color: ${({ theme }) => theme.menuIcon};
     top: 2rem;
     right: 2rem;
     width: 4rem;

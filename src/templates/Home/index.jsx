@@ -1,4 +1,3 @@
-import { Toggle } from '../../components/Toggle';
 import { GridTwoColumns } from '../../components/GridTwoColumns';
 
 import { GlobalStyles } from '../../styles/global-styles';
@@ -7,17 +6,18 @@ import { useDarkMode } from '../../styles/useDarkMode';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../../styles/theme';
 import { Menu } from '../../components/Menu';
+import { GridThreeColumns } from '../../components/GridThreeColumns';
 
 export const linksMock = [
   {
-    link: 'teste',
-    children: 'teste',
+    link: '#calculator',
+    children: 'Calcular',
     newTab: false,
   },
   {
-    link: 'teste2',
-    children: 'teste2',
-    newTab: true,
+    link: '#infos',
+    children: 'Infos',
+    newTab: false,
   },
   {
     link: 'teste3',
@@ -34,13 +34,13 @@ function Home() {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
-
       <Menu
         links={linksMock}
         theme={theme}
         toggleTheme={toggleTheme}
       />
       <GridTwoColumns />
+      <GridThreeColumns />
       <GridTwoColumns />
     </ThemeProvider>
   );

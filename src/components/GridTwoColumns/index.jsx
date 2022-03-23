@@ -8,7 +8,7 @@ import { SectionContainer } from '../SectionContainer';
 export const GridTwoColumns = () => {
   return (
     <SectionContainer>
-      <Styled.FlexGrid>
+      <Styled.FlexGrid id="calculator">
         <Heading size="huge">
           Cuidar da sua saúde nunca foi tão fácil
         </Heading>

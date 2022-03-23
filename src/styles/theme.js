@@ -26,6 +26,7 @@ const fonts = {
 export const lightTheme = {
   background: '#F2F2F2',
   white: '#fff',
+  menuIcon: '#000',
   primaryText: '#1E1E1E',
   heading: '#25CA2B',
   buttonCall: '#F84D4D',
@@ -38,6 +39,7 @@ export const lightTheme = {
 export const darkTheme = {
   background: '#1E1E1E',
   white: '#fff',
+  menuIcon: '#fff',
   primaryText: '#bca79d',
   heading: '#FB6D1D',
   buttonCall: '#2BB415',
