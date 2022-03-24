@@ -1,12 +1,14 @@
-import { GridTwoColumns } from '../../components/GridTwoColumns';
-
 import { GlobalStyles } from '../../styles/global-styles';
 import { useDarkMode } from '../../styles/useDarkMode';
+import { darkTheme, lightTheme } from '../../styles/theme';
 
 import { ThemeProvider } from 'styled-components';
-import { darkTheme, lightTheme } from '../../styles/theme';
+
+import { GridTwoColumns } from '../../components/GridTwoColumns';
 import { Menu } from '../../components/Menu';
 import { GridThreeColumns } from '../../components/GridThreeColumns';
+import { Footer } from '../../components/Footer';
+import { GridTeam } from '../../components/GridTeam';
 
 export const linksMock = [
   {
@@ -20,8 +22,8 @@ export const linksMock = [
     newTab: false,
   },
   {
-    link: 'teste3',
-    children: 'teste3',
+    link: '#team',
+    children: 'Equipe',
     newTab: false,
   },
 ];
@@ -41,7 +43,8 @@ function Home() {
       />
       <GridTwoColumns />
       <GridThreeColumns />
-      <GridTwoColumns />
+      <GridTeam theme={theme} />
+      <Footer />
     </ThemeProvider>
   );
 }

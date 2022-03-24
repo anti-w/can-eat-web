@@ -24,4 +24,8 @@ body {
     overflow-x: hidden;
         
 }
+
+a {
+    color: ${({ theme }) => theme.menuIcon}
+}
 `;

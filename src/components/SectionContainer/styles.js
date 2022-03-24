@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.section`
   ${({ theme }) => css`
-    display: flex;
     margin: 2rem 0;
     padding: 0 5rem;
     justify-content: center;
