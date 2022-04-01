@@ -3,16 +3,14 @@ import styled, { css } from 'styled-components';
 export const Container = styled.div`
   ${({ theme }) => css`
     display: grid;
-    text-align: center;
-    justify-content: center;
     align-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
-    min-height: 70rem;
+    justify-content: center;
     gap: 32px;
+    margin: 4rem 0;
+    grid-template-columns: 1fr 1fr 1fr;
+
     @media ${theme.media.lteMedium} {
       grid-template-columns: 1fr;
-    }
-    
     }
   `}
 `;

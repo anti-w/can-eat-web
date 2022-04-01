@@ -22,9 +22,9 @@ export const GridTeam = () => {
           role="Developer"
         />
         <MemberTeamCard
-          linkedin="https://www.linkedin.com/in/anti-w/"
+          linkedin="https://www.linkedin.com/in/lucas-vilela-oliveira/"
           photo="https://avatarfiles.alphacoders.com/860/thumb-86002.png"
-          gitHub="https://www.github.com/anti-w/"
+          gitHub="https://github.com/Lucaslvo"
           name="Lucas Vilela"
           role="UI/UX Designer"
         />

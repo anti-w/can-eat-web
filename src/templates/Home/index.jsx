@@ -43,7 +43,7 @@ function Home() {
       />
       <GridTwoColumns />
       <GridThreeColumns />
-      <GridTeam theme={theme} />
+      <GridTeam />
       <Footer />
     </ThemeProvider>
   );

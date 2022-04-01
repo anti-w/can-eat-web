@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Home from './templates/Home';
+import Register from './templates/Register';
 
- 
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <Register />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

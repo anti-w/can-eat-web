@@ -40,7 +40,7 @@ export const darkTheme = {
   background: '#1E1E1E',
   white: '#fff',
   menuIcon: '#fff',
-  primaryText: '#bca79d',
+  primaryText: '#f2f2f2',
   heading: '#FB6D1D',
   buttonCall: '#2BB415',
   fonts: fonts,
