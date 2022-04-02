@@ -1,4 +1,4 @@
-import { useFormik } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Styled from './styles';
 import * as Yup from 'yup';
 
@@ -29,78 +29,51 @@ export const RegisterForm = () => {
       'Confirmpassword is required',
     ),
   });
-  const formik = useFormik({
-    initialValues,
-    validationSchema,
-    onSubmit,
-  });
 
   return (
     <Styled.Container>
-      <form onSubmit={formik.handleSubmit}>
-        <Styled.FormControl>
-          <label htmlFor="name">Name</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            {...formik.getFieldProps('name')}
-          />
-          {formik.touched.name && formik.errors.name && (
-            <Styled.SpanError>
-              {formik.errors.name}
-            </Styled.SpanError>
-          )}
-        </Styled.FormControl>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        <Form>
+          <Styled.FormControl>
+            <label htmlFor="name">Name</label>
+            <Field id="name" name="name" type="text" />
+            <ErrorMessage name="name" />
+          </Styled.FormControl>
 
-        <Styled.FormControl>
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            {...formik.getFieldProps('email')}
-          />
-          {formik.touched.email && formik.errors.email && (
-            <Styled.SpanError>
-              {formik.errors.email}
-            </Styled.SpanError>
-          )}
-        </Styled.FormControl>
+          <Styled.FormControl>
+            <label htmlFor="email">Email</label>
+            <Field id="email" name="email" type="email" />
+            <ErrorMessage name="email" />
+          </Styled.FormControl>
 
-        <Styled.FormControl>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            {...formik.getFieldProps('password')}
-          />
-          {formik.touched.password &&
-            formik.errors.password && (
-              <Styled.SpanError>
-                {formik.errors.password}
-              </Styled.SpanError>
-            )}
-        </Styled.FormControl>
+          <Styled.FormControl>
+            <label htmlFor="password">Password</label>
+            <Field
+              id="password"
+              name="password"
+              type="password"
+            />
+            <ErrorMessage name="password" />
+          </Styled.FormControl>
 
-        <Styled.FormControl>
-          <label htmlFor="password">Confirm password</label>
-          <input
-            id="confirmpassword"
-            name="confirmpassword"
-            type="password"
-            {...formik.getFieldProps('confirmpassword')}
-          />
-          {formik.touched.confirmpassword &&
-            formik.errors.confirmpassword && (
-              <Styled.SpanError>
-                {formik.errors.confirmpassword}
-              </Styled.SpanError>
-            )}
-        </Styled.FormControl>
-        <button type="submit">Register</button>
-      </form>
+          <Styled.FormControl>
+            <label htmlFor="password">
+              Confirm password
+            </label>
+            <Field
+              id="confirmpassword"
+              name="confirmpassword"
+              type="password"
+            />
+            <ErrorMessage name="confirmpassword" />
+          </Styled.FormControl>
+          <button type="submit">Register</button>
+        </Form>
+      </Formik>
     </Styled.Container>
   );
 };
