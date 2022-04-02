@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Styled from './styles';
 import * as Yup from 'yup';
+import { TextError } from '../TextError';
 
 export const RegisterForm = () => {
   const initialValues = {
@@ -41,13 +42,19 @@ export const RegisterForm = () => {
           <Styled.FormControl>
             <label htmlFor="name">Name</label>
             <Field id="name" name="name" type="text" />
-            <ErrorMessage name="name" />
+            <ErrorMessage
+              name="name"
+              component={TextError}
+            />
           </Styled.FormControl>
 
           <Styled.FormControl>
             <label htmlFor="email">Email</label>
             <Field id="email" name="email" type="email" />
-            <ErrorMessage name="email" />
+            <ErrorMessage
+              name="email"
+              component={TextError}
+            />
           </Styled.FormControl>
 
           <Styled.FormControl>
@@ -57,7 +64,10 @@ export const RegisterForm = () => {
               name="password"
               type="password"
             />
-            <ErrorMessage name="password" />
+            <ErrorMessage
+              name="password"
+              component={TextError}
+            />
           </Styled.FormControl>
 
           <Styled.FormControl>
@@ -69,7 +79,10 @@ export const RegisterForm = () => {
               name="confirmpassword"
               type="password"
             />
-            <ErrorMessage name="confirmpassword" />
+            <ErrorMessage
+              name="confirmpassword"
+              component={TextError}
+            />
           </Styled.FormControl>
           <button type="submit">Register</button>
         </Form>

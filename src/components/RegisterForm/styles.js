@@ -31,7 +31,3 @@ export const Container = styled.div`
 export const FormControl = styled.div`
   margin-bottom: 2rem;
 `;
-
-export const SpanError = styled.span`
-  color: red;
-`;
