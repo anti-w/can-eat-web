@@ -1,59 +1,112 @@
 import { useFormik } from 'formik';
 import * as Styled from './styles';
+import * as Yup from 'yup';
 
 export const RegisterForm = () => {
+  const initialValues = {
+    email: '',
+    name: '',
+    password: '',
+    confirmpassword: '',
+  };
+
+  const onSubmit = ({
+    email,
+    name,
+    confirm,
+    confirmpassword,
+  }) => {
+    alert(JSON.stringify(name, null, 2));
+  };
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required('Name is required'),
+    email: Yup.string()
+      .email('Invalid e-mail format')
+      .required('E-mail is required'),
+    password: Yup.string().required('Password is required'),
+    confirmpassword: Yup.string().required(
+      'Confirmpassword is required',
+    ),
+  });
   const formik = useFormik({
-    initialValues: {
-      email: '',
-      name: '',
-      password: '',
-      confirmpassword: '',
-    },
-    onSubmit: ({
-      email,
-      name,
-      password,
-      confirmpassword,
-    }) => {
-      alert(JSON.stringify(email, null, 2));
-    },
+    initialValues,
+    validationSchema,
+    onSubmit,
   });
 
   return (
     <Styled.Container>
       <form onSubmit={formik.handleSubmit}>
-        <label htmlFor="name">Name</label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.name}
-        />
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
-        />
-        <label htmlFor="password">Confirm password</label>
-        <input
-          id="confirpassword"
-          name="confirpassword"
-          type="password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
-        />
+        <Styled.FormControl>
+          <label htmlFor="name">Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.name}
+          />
+          {formik.touched.name && formik.errors.name && (
+            <Styled.SpanError>
+              {formik.errors.name}
+            </Styled.SpanError>
+          )}
+        </Styled.FormControl>
+
+        <Styled.FormControl>
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+          />
+          {formik.touched.email && formik.errors.email && (
+            <Styled.SpanError>
+              {formik.errors.email}
+            </Styled.SpanError>
+          )}
+        </Styled.FormControl>
+
+        <Styled.FormControl>
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
+          />
+          {formik.touched.password &&
+            formik.errors.password && (
+              <Styled.SpanError>
+                {formik.errors.password}
+              </Styled.SpanError>
+            )}
+        </Styled.FormControl>
+
+        <Styled.FormControl>
+          <label htmlFor="password">Confirm password</label>
+          <input
+            id="confirmpassword"
+            name="confirmpassword"
+            type="password"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.confirmpassword}
+          />
+          {formik.touched.confirmpassword &&
+            formik.errors.confirmpassword && (
+              <Styled.SpanError>
+                {formik.errors.confirmpassword}
+              </Styled.SpanError>
+            )}
+        </Styled.FormControl>
         <button type="submit">Register</button>
       </form>
     </Styled.Container>
