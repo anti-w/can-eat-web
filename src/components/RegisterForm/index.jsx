@@ -44,9 +44,7 @@ export const RegisterForm = () => {
             id="name"
             name="name"
             type="text"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.name}
+            {...formik.getFieldProps('name')}
           />
           {formik.touched.name && formik.errors.name && (
             <Styled.SpanError>
@@ -61,9 +59,7 @@ export const RegisterForm = () => {
             id="email"
             name="email"
             type="email"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.email}
+            {...formik.getFieldProps('email')}
           />
           {formik.touched.email && formik.errors.email && (
             <Styled.SpanError>
@@ -78,9 +74,7 @@ export const RegisterForm = () => {
             id="password"
             name="password"
             type="password"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.password}
+            {...formik.getFieldProps('password')}
           />
           {formik.touched.password &&
             formik.errors.password && (
@@ -96,9 +90,7 @@ export const RegisterForm = () => {
             id="confirmpassword"
             name="confirmpassword"
             type="password"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.confirmpassword}
+            {...formik.getFieldProps('confirmpassword')}
           />
           {formik.touched.confirmpassword &&
             formik.errors.confirmpassword && (
