@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { Container as SectionContainer } from '../SectionContainer/styles';
 
 const menuVisible = () => css`
   visibility: visible;
@@ -15,25 +14,23 @@ export const Container = styled.div`
     right: 0;
     background: ${({ theme }) => theme.background};
 
-    > ${SectionContainer} {
-      display: block;
-      margin: 0 2rem;
-      padding: 0;
-    }
-
     @media ${theme.media.lteMedium} {
       height: 100vh;
       visibility: hidden;
       opacity: 0;
       ${visible && menuVisible()}
 
-      > ${SectionContainer} {
-        display: grid;
-        grid-template-columns: 1fr;
-        height: 100vh;
-        align-items: center;
-        overflow-y: auto;
-      }
+  `}
+`;
+
+export const ButtonsContainer = styled.div`
+  ${({ theme }) => css`
+    justify-content: center;
+    display: flex;
+
+    @media ${theme.media.lteMedium} {
+      flex-direction: column;
+    }
   `}
 `;
 
@@ -42,8 +39,15 @@ export const MenuContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 6rem;
+    margin-right: 6rem;
+    h1 {
+      color: ${theme.primaryText};
+    }
     @media ${theme.media.lteMedium} {
-      display: block;
+      height: 100vh;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
       padding: ${theme.spacings.xxlarge} 0;
     }

@@ -8,15 +8,14 @@ export const Footer = () => {
       <div
         style={{
           display: 'flex',
+          margin: '10px',
         }}
       >
-        <Github
+        <Github size="32" style={{ marginRight: '15px' }} />
+        <Linkedin
           size="32"
-          style={{
-            marginInline: '40px',
-          }}
+          style={{ marginRight: '15px' }}
         />
-        <Linkedin size="32" />
       </div>
 
       <div
@@ -25,7 +24,7 @@ export const Footer = () => {
           fontSize: '12px',
         }}
       >
-        <h4>Acompanhe nosso projeto e intereja!</h4>
+        <h4>Acompanhe nosso projeto!</h4>
         <h4>Adoramos feedbacks.</h4>
       </div>
     </Styled.Container>

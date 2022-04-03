@@ -3,11 +3,15 @@ import styled, { css } from 'styled-components';
 export const Container = styled.div`
   ${({ theme }) => css`
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     border: gray 1px solid;
     border-radius: 10%;
+    margin: 2.5rem;
     width: 30rem;
-    height: 30rem;
+    height: 33rem;
+    background-color: red;
 
     img {
       align-self: center;
@@ -21,18 +25,6 @@ export const Container = styled.div`
     }
 
     @media ${theme.media.lteMedium} {
-      width: 15rem;
-      height: 22rem;
-      margin: 0;
-      padding: 0;
-
-      h2 {
-        font-size: 14px;
-      }
-
-      h4 {
-        font-size: 12px;
-      }
     }
   `}
 `;

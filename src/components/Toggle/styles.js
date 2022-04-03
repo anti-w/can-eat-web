@@ -5,5 +5,6 @@ export const Button = styled.button`
     color: ${({ theme }) => theme.primaryText};
     background: transparent;
     border: none;
+    margin-left: 2rem;
   `}
 `;

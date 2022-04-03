@@ -4,11 +4,11 @@ export const ButtonCall = styled.button`
   ${({ theme }) => css`
     border: none;
     padding: 5px 15px;
+    margin: 1rem;
     background: ${({ theme }) => theme.buttonCall};
     cursor: pointer;
     color: ${({ theme }) => theme.white};
-    max-width: 22.5rem;
-    height: 5rem;
+    height: 4rem;
     border-radius: 5%;
     font-size: ${({ theme }) => theme.fonts.sizes.small};
   `}

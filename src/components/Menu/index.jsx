@@ -7,6 +7,7 @@ import { SectionContainer } from '../SectionContainer';
 
 import { FilterSquare } from '@styled-icons/bootstrap/FilterSquare';
 import { XSquareFill } from '@styled-icons/bootstrap/XSquareFill';
+import { Button } from '../Button';
 
 export const Menu = ({
   links = [],
@@ -31,15 +32,25 @@ export const Menu = ({
         onClick={() => setVisible(false)}
         visible={visible}
       >
-        <SectionContainer>
-          <Styled.MenuContainer>
-            <NavLink links={links} />
+        <Styled.MenuContainer>
+          <h1>Logo</h1>
+
+          <NavLink links={links} />
+          <Styled.ButtonsContainer>
+            <Button
+              textInside="Registre-se"
+              typeAction="register"
+            />
+            <Button
+              textInside="Entrar"
+              typeAction="login"
+            />
             <Toggle
               theme={theme}
               toggleTheme={toggleTheme}
             />
-          </Styled.MenuContainer>
-        </SectionContainer>
+          </Styled.ButtonsContainer>
+        </Styled.MenuContainer>
       </Styled.Container>
     </>
   );

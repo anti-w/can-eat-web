@@ -9,14 +9,11 @@ export const IconsContainer = styled.div`
 
 export const Container = styled.div`
   ${({ theme }) => css`
+    margin: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-bottom: 2rem;
-    h3 {
-      margin-top: 2rem;
-    }
 
     img {
       border-radius: 50%;

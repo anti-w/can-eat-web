@@ -21,7 +21,7 @@ export const GridTwoColumns = () => {
           Comece um estilo de vida que durará para sempre!
         </Description>
         <br></br>
-        <Button />
+        <Button textInside="Conheça gratuitamente" />
       </Styled.FlexGrid>
     </SectionContainer>
   );

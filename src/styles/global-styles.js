@@ -18,9 +18,6 @@ body {
     background: ${({ theme }) => theme.background} ;
     font-family: ${({ theme }) =>
       theme.fonts.family.default} ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     overflow-x: hidden;
         
 }
