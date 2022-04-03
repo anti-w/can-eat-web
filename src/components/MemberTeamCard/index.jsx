@@ -1,8 +1,6 @@
 import P from 'prop-types';
 import * as Styled from './styles';
 
-import { Link } from 'react-router-dom';
-
 import { Github, Linkedin } from '@styled-icons/bootstrap';
 
 import { Description } from '../Description';

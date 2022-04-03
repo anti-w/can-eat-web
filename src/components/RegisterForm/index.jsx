@@ -1,7 +1,21 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Styled from './styles';
 import * as Yup from 'yup';
+import axios from 'axios';
+
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { TextError } from '../TextError';
+
+const registerUser = async (data) => {
+  try {
+    const response = await axios.post(
+      'https://can-eat-api.herokuapp.com/auth/register',
+      data,
+    );
+    alert(response.data.msg);
+  } catch (error) {
+    alert(error.response.data.msg);
+  }
+};
 
 export const RegisterForm = () => {
   const initialValues = {
@@ -11,13 +25,8 @@ export const RegisterForm = () => {
     confirmpassword: '',
   };
 
-  const onSubmit = ({
-    email,
-    name,
-    confirm,
-    confirmpassword,
-  }) => {
-    alert(JSON.stringify(name, null, 2));
+  const onSubmit = (values) => {
+    registerUser(values);
   };
 
   const validationSchema = Yup.object({
@@ -26,9 +35,12 @@ export const RegisterForm = () => {
       .email('Invalid e-mail format')
       .required('E-mail is required'),
     password: Yup.string().required('Password is required'),
-    confirmpassword: Yup.string().required(
-      'Confirmpassword is required',
-    ),
+    confirmpassword: Yup.string()
+      .oneOf(
+        [Yup.ref('password'), ''],
+        'Passwords must match',
+      )
+      .required('Confirmpassword is required'),
   });
 
   return (

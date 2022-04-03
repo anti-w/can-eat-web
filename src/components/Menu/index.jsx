@@ -1,13 +1,12 @@
-import P from 'prop-types';
+import { useState } from 'react';
 import * as Styled from './styles';
 
 import { NavLink } from '../NavLink';
 import { Toggle } from '../Toggle';
+import { SectionContainer } from '../SectionContainer';
 
 import { FilterSquare } from '@styled-icons/bootstrap/FilterSquare';
 import { XSquareFill } from '@styled-icons/bootstrap/XSquareFill';
-import { useState } from 'react';
-import { SectionContainer } from '../SectionContainer';
 
 export const Menu = ({
   links = [],

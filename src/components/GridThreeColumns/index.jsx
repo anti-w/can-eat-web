@@ -1,6 +1,6 @@
-import { InfoCard } from '../InfoCard';
-import { SectionContainer } from '../SectionContainer';
 import * as Styled from './styles';
+
+import { InfoCard } from '../InfoCard';
 
 export const GridThreeColumns = () => {
   return (

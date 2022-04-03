@@ -1,6 +1,7 @@
 import { GlobalStyles } from '../../styles/global-styles';
-import { useDarkMode } from '../../styles/useDarkMode';
 import { darkTheme, lightTheme } from '../../styles/theme';
+
+import { useDarkMode } from '../../hooks/useDarkMode';
 
 import { ThemeProvider } from 'styled-components';
 
