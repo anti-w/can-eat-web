@@ -11,7 +11,6 @@ export const Container = styled.div`
     margin: 2.5rem;
     width: 30rem;
     height: 33rem;
-    background-color: red;
 
     img {
       align-self: center;

@@ -1,7 +1,5 @@
-import P from 'prop-types';
+import { LoginForm } from '../../components/LoginForm';
 
-const Login = () => {
-  return <h1>Login Page</h1>;
-};
+const Login = () => <LoginForm />;
 
 export default Login;

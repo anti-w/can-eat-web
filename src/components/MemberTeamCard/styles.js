@@ -9,7 +9,7 @@ export const IconsContainer = styled.div`
 
 export const Container = styled.div`
   ${({ theme }) => css`
-    margin: 2rem;
+    margin: 8rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,6 +20,7 @@ export const Container = styled.div`
     }
 
     @media ${theme.media.lteMedium} {
+      margin: 3rem;
       img {
         width: 12rem;
         height: auto;
