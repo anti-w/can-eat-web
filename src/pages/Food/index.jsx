@@ -1,14 +1,24 @@
 import P from 'prop-types';
-import * as Styled from './styles';
+import { ContainerFlexFoodCard } from '../../components/ContainerFlexFoodCard';
+import { Menu } from '../../components/Menu';
+import { linksMock } from '../Home';
 
-export const Food = ({ children }) => {
+const Food = ({ theme, toggleTheme }) => {
   return (
-    <Styled.Container>
-      <>{children}</>
-    </Styled.Container>
+    <>
+      <Menu
+        links={linksMock}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
+      <ContainerFlexFoodCard />
+    </>
   );
 };
 
 Food.propTypes = {
-  children: P.node.isRequired,
+  theme: P.string.isRequired,
+  toggleTheme: P.func.isRequired,
 };
+
+export default Food;

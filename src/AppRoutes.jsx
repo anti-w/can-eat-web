@@ -12,30 +12,65 @@ import {
   AuthContext,
 } from './context/authContext';
 
+import { ThemeProvider } from 'styled-components';
+
+import { useDarkMode } from './hooks/useDarkMode';
+import { darkTheme, lightTheme } from './styles/theme';
+
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import UserMeals from './pages/UserMeals';
+import { GlobalStyles } from './styles/global-styles';
+import Food from './pages/Food';
 
 export const AppRoutes = () => {
+  const [theme, toggleTheme] = useDarkMode();
+  const themeMode =
+    theme === 'light' ? lightTheme : darkTheme;
+
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/meals"
-            element={
-              <Private>
-                <UserMeals />
-              </Private>
-            }
-          />
-        </Routes>
-      </AuthProvider>
-    </BrowserRouter>
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyles />
+
+      <BrowserRouter>
+        <AuthProvider>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  theme={theme}
+                  toggleTheme={toggleTheme}
+                />
+              }
+            />
+            <Route
+              path="/register"
+              element={<Register />}
+            />
+            <Route
+              path="/foods"
+              element={
+                <Food
+                  theme={theme}
+                  toggleTheme={toggleTheme}
+                />
+              }
+            />
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/meals"
+              element={
+                <Private>
+                  <UserMeals />
+                </Private>
+              }
+            />
+          </Routes>
+        </AuthProvider>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 };
 

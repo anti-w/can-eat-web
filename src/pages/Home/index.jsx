@@ -1,9 +1,4 @@
-import { GlobalStyles } from '../../styles/global-styles';
-import { darkTheme, lightTheme } from '../../styles/theme';
-
-import { useDarkMode } from '../../hooks/useDarkMode';
-
-import { ThemeProvider } from 'styled-components';
+import P from 'prop-types';
 
 import { GridTwoColumns } from '../../components/GridTwoColumns';
 import { Menu } from '../../components/Menu';
@@ -29,14 +24,9 @@ export const linksMock = [
   },
 ];
 
-function Home() {
-  const [theme, toggleTheme] = useDarkMode();
-  const themeMode =
-    theme === 'light' ? lightTheme : darkTheme;
-
+function Home({ theme, toggleTheme }) {
   return (
-    <ThemeProvider theme={themeMode}>
-      <GlobalStyles />
+    <div>
       <Menu
         links={linksMock}
         theme={theme}
@@ -46,8 +36,13 @@ function Home() {
       <GridThreeColumns />
       <GridTeam />
       <Footer />
-    </ThemeProvider>
+    </div>
   );
 }
+
+Home.propTypes = {
+  theme: P.string.isRequired,
+  toggleTheme: P.func.isRequired,
+};
 
 export default Home;
