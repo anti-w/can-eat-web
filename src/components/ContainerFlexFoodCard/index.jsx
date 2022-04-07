@@ -6,6 +6,14 @@ export const ContainerFlexFoodCard = () => {
   return (
     <Styled.Container>
       <FoodCard />
+      <FoodCard />
+      <FoodCard />
+      <FoodCard />
+      <FoodCard />
+      <FoodCard />
+      <FoodCard />
+      <FoodCard />
+      <FoodCard />
     </Styled.Container>
   );
 };

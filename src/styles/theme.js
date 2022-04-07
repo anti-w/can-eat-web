@@ -1,5 +1,5 @@
 const spacings = {
-  xsmal: '8rem',
+  xsmal: '1.4rem',
   small: '1.6rem',
   medium: '2.4rem',
   large: '3.2rem',
@@ -12,14 +12,24 @@ const spacings = {
 const fonts = {
   family: { default: "'Open Sans', sans-serif" },
   sizes: {
-    xsmal: '8rem',
-    small: '1.6rem',
+    xxsmall: '1.1rem',
+    xsmall: '1.4rem',
+    small: '1.8rem',
     medium: '2.4rem',
     large: '3.2rem',
     xlarge: '4.0rem',
     xxlarge: '4.8rem',
     huge: '5.6rem',
     xhuge: '6.4rem',
+  },
+};
+
+const icons = {
+  bgColors: {
+    calories: '#FFC22B',
+    carb: '#F8593B',
+    proteins: '#3B70F8',
+    fats: '#2ECC71',
   },
 };
 
@@ -32,6 +42,8 @@ export const lightTheme = {
   buttonCall: '#F84D4D',
   fonts: fonts,
   spacings: spacings,
+  icons: icons,
+
   media: {
     lteMedium: '(max-width: 768px)',
   },
@@ -45,6 +57,8 @@ export const darkTheme = {
   buttonCall: '#2BB415',
   fonts: fonts,
   spacings: spacings,
+  icons: icons,
+
   media: {
     lteMedium: '(max-width: 768px)',
   },

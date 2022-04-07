@@ -2,7 +2,7 @@ import P from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as Styled from './styles';
 
-export const Button = ({ textInside, typeAction }) => {
+export const Button = ({ textInside, typeAction = '' }) => {
   return (
     <Styled.ButtonContainer>
       <Link to={`/${typeAction}`}>
@@ -14,5 +14,5 @@ export const Button = ({ textInside, typeAction }) => {
 
 Button.propTypes = {
   textInside: P.string.isRequired,
-  typeAction: P.string.isRequired,
+  typeAction: P.string,
 };
