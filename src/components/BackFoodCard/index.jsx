@@ -1,4 +1,5 @@
 import * as Styled from './styles';
+import P from 'prop-types';
 
 import { EggFill } from '@styled-icons/bootstrap';
 import { FireIcon } from '@heroicons/react/solid';
@@ -6,18 +7,19 @@ import {
   PizzaSlice,
   BreadSlice,
 } from '@styled-icons/fa-solid';
-import {
-  PlusCircleFill,
-  DashCircleFill,
-} from '@styled-icons/bootstrap';
 
 import { FoodCardIcon } from '../FoodCardIcons';
 import { Heading } from '../Heading';
 
-export const FoodCard = () => {
+export const BackFoodCard = ({
+  setIsFlipped,
+  isFlipped,
+}) => {
   return (
     <Styled.Container>
-      <Styled.TitleWithIcons>
+      <Styled.TitleWithIcons
+        onClick={() => setIsFlipped(!isFlipped)}
+      >
         <Heading as="h4" size="xsmall">
           Abóbora
         </Heading>
@@ -41,15 +43,24 @@ export const FoodCard = () => {
         <p>P/G/C</p>
         <p>62/55/102</p>
       </Styled.NutrientsContainer>
-      <Styled.DescriptionContainer>
-        <p>{`Abóbora, cabotian (japonesa), c/ quiabo, refogado (c/ óleo, cebola e alho), c/ salsa, c/ sal, << Pumpkin, squash, cabotian, with okra, braised (with oil, onion and garlic, with salt`}</p>
+      <Styled.DescriptionContainer
+        onClick={() => setIsFlipped(!isFlipped)}
+      >
+        <p>{`Abóbora, cabotian (japonesa), c/ quiabo, refogado (c/ óleo, cebola e alho), c/ salsa, c/ sal, << Pumpkin, squash, cabotian, with okra, braised (with oil, onion and garlic, withsalthdiasuhduiashduiashduiahsuik`}</p>
       </Styled.DescriptionContainer>
       <Styled.ButtonsContainer>
         <Styled.CustomPlusCircleFill />
         <input />
         <Styled.CustomDashCircleFill />
-        <button>Order</button>
+        <button onClick={() => alert('fui clicado')}>
+          Order
+        </button>
       </Styled.ButtonsContainer>
     </Styled.Container>
   );
+};
+
+BackFoodCard.propTypes = {
+  setIsFlipped: P.func,
+  isFlipped: P.bool,
 };

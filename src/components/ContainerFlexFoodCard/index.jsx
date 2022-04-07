@@ -1,19 +1,14 @@
 import * as Styled from './styles';
 
-import { FoodCard } from '../FoodCard';
+import { FlipCard } from '../FlipCard';
 
 export const ContainerFlexFoodCard = () => {
   return (
     <Styled.Container>
-      <FoodCard />
-      <FoodCard />
-      <FoodCard />
-      <FoodCard />
-      <FoodCard />
-      <FoodCard />
-      <FoodCard />
-      <FoodCard />
-      <FoodCard />
+      <FlipCard />
+      <FlipCard />
+      <FlipCard />
+      <FlipCard />
     </Styled.Container>
   );
 };
