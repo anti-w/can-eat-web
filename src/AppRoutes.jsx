@@ -23,6 +23,7 @@ import Login from './pages/Login';
 import UserMeals from './pages/UserMeals';
 import { GlobalStyles } from './styles/global-styles';
 import Food from './pages/Food';
+import { CalculatorProvider } from './context/calculatorContext';
 
 export const AppRoutes = () => {
   const [theme, toggleTheme] = useDarkMode();
@@ -52,10 +53,12 @@ export const AppRoutes = () => {
             <Route
               path="/foods"
               element={
-                <Food
-                  theme={theme}
-                  toggleTheme={toggleTheme}
-                />
+                <CalculatorProvider>
+                  <Food
+                    theme={theme}
+                    toggleTheme={toggleTheme}
+                  />
+                </CalculatorProvider>
               }
             />
             <Route path="/login" element={<Login />} />
