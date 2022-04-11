@@ -1,4 +1,6 @@
 import P from 'prop-types';
+
+import { CalculatorIcon } from '../../components/CalculatorIcon';
 import { ContainerFlexFoodCard } from '../../components/ContainerFlexFoodCard';
 import { Menu } from '../../components/Menu';
 import { linksMock } from '../Home';
@@ -12,6 +14,7 @@ const Food = ({ theme, toggleTheme }) => {
         toggleTheme={toggleTheme}
       />
       <ContainerFlexFoodCard />
+      <CalculatorIcon />
     </>
   );
 };

@@ -11,19 +11,19 @@ import {
   AuthProvider,
   AuthContext,
 } from './context/authContext';
+import { CalculatorProvider } from './context/calculatorContext';
 
 import { ThemeProvider } from 'styled-components';
 
 import { useDarkMode } from './hooks/useDarkMode';
 import { darkTheme, lightTheme } from './styles/theme';
+import { GlobalStyles } from './styles/global-styles';
 
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import UserMeals from './pages/UserMeals';
-import { GlobalStyles } from './styles/global-styles';
 import Food from './pages/Food';
-import { CalculatorProvider } from './context/calculatorContext';
 
 export const AppRoutes = () => {
   const [theme, toggleTheme] = useDarkMode();
@@ -33,7 +33,6 @@ export const AppRoutes = () => {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
-
       <BrowserRouter>
         <AuthProvider>
           <Routes>

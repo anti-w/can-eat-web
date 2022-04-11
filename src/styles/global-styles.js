@@ -18,7 +18,6 @@ body {
     background: ${({ theme }) => theme.background} ;
     font-family: ${({ theme }) =>
       theme.fonts.family.default} ;
-    overflow-x: hidden;
         
 }
 

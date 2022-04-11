@@ -12,16 +12,13 @@ export const Container = styled.div`
     top: 0;
     left: 0;
     right: 0;
-    background: ${({ theme }) => theme.background};
+    background: ${theme.background};
 
     @media ${theme.media.lteMedium} {
       height: 100vh;
       visibility: hidden;
-      opacity: 0;
-      ${visible && menuVisible()}
-
-      
-    
+      opacity: 0;      
+      ${visible && menuVisible()};       
 
   `}
 `;
@@ -52,6 +49,7 @@ export const MenuContainer = styled.div`
       flex-direction: column;
       align-items: center;
       text-align: center;
+      overflow: hidden;
       padding: ${theme.spacings.xxlarge} 0;
     }
   `}
