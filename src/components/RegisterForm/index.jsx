@@ -9,6 +9,8 @@ import { TextError } from '../TextError';
 import { Heading } from '../Heading';
 import { Toggle } from '../Toggle';
 import { Button } from '../Button';
+import { House } from '@styled-icons/bootstrap';
+import { Link } from 'react-router-dom';
 
 export const RegisterForm = ({ theme, toggleTheme }) => {
   const initialValues = {
@@ -54,6 +56,14 @@ export const RegisterForm = ({ theme, toggleTheme }) => {
               theme={theme}
               toggleTheme={toggleTheme}
             />
+            <Link to="/">
+              <House
+                size={24}
+                style={{
+                  marginRight: '10px',
+                }}
+              />
+            </Link>
           </div>
           <Heading size="small" as="h3">
             Cadastre-se
@@ -125,10 +135,19 @@ export const RegisterForm = ({ theme, toggleTheme }) => {
             </Styled.FormControl>
           </Form>
         </Formik>
-        <Button textInside="Cadastrar" />
-        <p>
-          {`Você possui cadastro? `} <a>Entre</a>{' '}
-        </p>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Button textInside="Cadastrar" />
+          <p>
+            {`Você possui cadastro? `}{' '}
+            <a href="/login">Entre</a>{' '}
+          </p>
+        </div>
       </Styled.FormContainer>
 
       <img

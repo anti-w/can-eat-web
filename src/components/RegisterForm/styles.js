@@ -5,8 +5,8 @@ export const FormContainer = styled.div`
     border: 2px solid gray;
     padding-top: 5rem;
     font-size: 1.4rem;
-    width: 50.5rem;
-    height: 82.5vh;
+    width: 46.5rem;
+    height: 52.5rem;
     align-items: center;
     justify-content: center;
     padding: 2rem 1.5rem;
@@ -15,10 +15,11 @@ export const FormContainer = styled.div`
     background-color: ${theme.formBg};
 
     form {
-      width: 75%;
+      width: 100%;
       border-radius: 10px;
       border: 2px solid gray;
-      padding: 2rem;
+      padding: 1.25rem 1rem;
+      padding-bottom: -1rem;
     }
 
     label {
@@ -32,7 +33,7 @@ export const FormContainer = styled.div`
     input[type='email'],
     input[type='password'] {
       display: flex;
-      width: 80%;
+      width: 85%;
       height: 3.6rem;
       padding: 0.6rem 1.2rem;
       font-size: 1.4rem;
@@ -55,10 +56,9 @@ export const FormControl = styled.div`
 export const HeadingContainer = styled.div`
   ${({ theme }) => css`
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 
     h2 {
-      margin-bottom: 1rem;
       font-weight: bold;
       font-size: 22px;
     }

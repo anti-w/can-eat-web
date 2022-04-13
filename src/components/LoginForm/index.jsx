@@ -29,12 +29,14 @@ export const LoginForm = () => {
 
   return (
     <Styled.Container>
-
       <Styled.FormContainer>
-
         <Styled.HeadingContainer>
-          <Heading size="medium" as="h2">Bem vindo!</Heading>
-          <Heading size="small" as="h3">Cadastre-se</Heading>
+          <Heading size="medium" as="h2">
+            Bem vindo!
+          </Heading>
+          <Heading size="small" as="h3">
+            Cadastre-se
+          </Heading>
         </Styled.HeadingContainer>
 
         <Formik
@@ -45,7 +47,12 @@ export const LoginForm = () => {
           <Form>
             <Styled.FormControl>
               <label htmlFor="email">Email</label>
-              <Field id="email" name="email" type="email" placeHolder="Insira seu e-mail"/>
+              <Field
+                id="email"
+                name="email"
+                type="email"
+                placeHolder="Insira seu e-mail"
+              />
               <ErrorMessage
                 name="email"
                 component={TextError}
@@ -65,22 +72,28 @@ export const LoginForm = () => {
                 component={TextError}
               />
             </Styled.FormControl>
-            
           </Form>
         </Formik>
         <Styled.Remember>
-        <label>
-          <input type="checkbox" />
-          Lembre-me
-        </label>
-        <a>Esqueceu sua senha?</a>
+          <label>
+            <input type="checkbox" />
+            Lembre-me
+          </label>
+          <a>Esqueceu sua senha?</a>
         </Styled.Remember>
         <button type="submit">Login</button>
         {/* <p>{String(authenticated)}</p> */}
-        <p>{`Você possui cadastro? `} <a>Cadastre-se</a> </p>
+        <p>
+          {`Você possui cadastro? `}{' '}
+          <a href="/register">Cadastre-se</a>{' '}
+        </p>
       </Styled.FormContainer>
 
-      <img src='https://cdn-icons.flaticon.com/png/512/3967/premium/3967391.png?token=exp=1649859445~hmac=2faffb9c8f66de6520bc45b513abd3f2' width={383} height={415} />
+      <img
+        src="https://cdn-icons.flaticon.com/png/512/3967/premium/3967391.png?token=exp=1649859445~hmac=2faffb9c8f66de6520bc45b513abd3f2"
+        width={383}
+        height={415}
+      />
     </Styled.Container>
   );
 };
