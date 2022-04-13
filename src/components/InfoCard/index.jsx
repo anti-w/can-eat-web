@@ -12,7 +12,7 @@ export const InfoCard = ({
   return (
     <Styled.Container>
       <img src={coverUrl} />
-      <Heading size="small" as="h2">
+      <Heading size="small" as="h3">
         {firstText}
       </Heading>
       <Description>{secondText}</Description>

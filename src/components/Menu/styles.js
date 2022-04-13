@@ -37,19 +37,18 @@ export const ButtonsContainer = styled.div`
 export const MenuContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
+    padding: 0.3rem 4.2rem;
+    text-align: center;
     justify-content: space-between;
     align-items: center;
-    margin-left: 6rem;
-    margin-right: 6rem;
     h1 {
       color: ${theme.primaryText};
     }
     @media ${theme.media.lteMedium} {
       height: 100vh;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      text-align: center;
-      overflow: hidden;
       padding: ${theme.spacings.xxlarge} 0;
     }
   `}
@@ -59,23 +58,23 @@ export const Button = styled.div`
   ${({ theme, visible }) => css`
     z-index: 6;
     position: fixed;
+    padding: 2rem;
+    top: 0;
     color: ${({ theme }) => theme.menuIcon};
-    top: 2rem;
-    right: 2rem;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    border: none;
-    display: none;
+    width: 100%;
+    height: 5vh;
     pointer-events: ${visible ? 'none' : 'all'};
-    > svg {
+    h1 {
+      width: 100%;
+    }
+    svg {
       width: 2.5rem;
       height: 2.5rem;
     }
     @media ${theme.media.lteMedium} {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
     }
   `}
 `;

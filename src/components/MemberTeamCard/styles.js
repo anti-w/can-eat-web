@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 export const IconsContainer = styled.div`
   ${({ theme }) => css`
-    margin-top: 2rem;
     color: ${({ theme }) => theme.menuIcon};
   `}
 `;
@@ -10,6 +9,7 @@ export const IconsContainer = styled.div`
 export const Container = styled.div`
   ${({ theme }) => css`
     margin: 8rem;
+    width: 42rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,6 +17,8 @@ export const Container = styled.div`
 
     img {
       border-radius: 50%;
+      height: 14rem;
+      margin-bottom: 1.4rem;
     }
 
     @media ${theme.media.lteMedium} {

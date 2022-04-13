@@ -12,7 +12,7 @@ export const Container = styled.div`
     width: 28rem;
     height: 25rem;
     background: ${theme.background};
-    border: 1px solid ${theme.primaryText};
+    border: 1.5px solid ${theme.primaryText};
     border-radius: 10%;
     flex-direction: column;
     box-shadow: -10px 8px 10px -9px #000;
@@ -38,7 +38,7 @@ export const DescriptionContainer = styled.span`
   ${({ theme }) => css`
     width: 100%;
     height: 15vh;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
     color: gray;
     text-align: justify;
     font-size: 12px;

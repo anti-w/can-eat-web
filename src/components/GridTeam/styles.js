@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components';
-import { Container } from '../SectionContainer/styles';
 
 export const Grid = styled.div`
   ${({ theme }) => css`
-    height: 100vh;
+    height: 75vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -22,7 +21,8 @@ export const TitleContainer = styled.div`
     align-items: center;
 
     @media ${theme.media.lteMedium} {
-      padding-top: 0;
+      padding-top: 0rem;
+      margin-bottom: 7rem;
     }
   `}
 `;

@@ -23,7 +23,17 @@ export const Menu = ({
         onClick={() => setVisible(true)}
       >
         {visible ? (
-          <XSquareFill aria-label="Close menu" />
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              flexDirection: 'columns',
+            }}
+          >
+            <h1>Logo</h1>
+            <XSquareFill aria-label="Close menu" />
+          </div>
         ) : (
           <FilterSquare aria-label="Open menu" />
         )}
@@ -33,8 +43,6 @@ export const Menu = ({
         visible={visible}
       >
         <Styled.MenuContainer>
-          <h1>Logo</h1>
-
           <NavLink links={links} />
           <Styled.ButtonsContainer>
             <Button

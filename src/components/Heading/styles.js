@@ -9,14 +9,22 @@ export const Title = styled.h1`
 
 const titleSize = {
   xsmall: (theme) => css`
-    font-size: ${theme.fonts.sizes.small};
+    @media ${theme.media.lteMedium} {
+      font-size: ${theme.fonts.sizes.small};
+    }
   `,
 
   small: (theme) => css`
     font-size: ${theme.fonts.sizes.medium};
+    @media ${theme.media.lteMedium} {
+      font-size: ${theme.fonts.sizes.small};
+    }
   `,
   medium: (theme) => css`
     font-size: ${theme.fonts.sizes.large};
+    @media ${theme.media.lteMedium} {
+      font-size: ${theme.fonts.sizes.small};
+    }
   `,
 
   big: (theme) => css`
