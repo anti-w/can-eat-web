@@ -47,7 +47,10 @@ export const AppRoutes = () => {
             />
             <Route
               path="/register"
-              element={<Register />}
+              element={<Register 
+                theme={theme}
+                toggleTheme={toggleTheme}
+              />}
             />
             <Route
               path="/foods"

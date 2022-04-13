@@ -9,6 +9,7 @@ export const Title = styled.h1`
 
 const titleSize = {
   xsmall: (theme) => css`
+    font-size: ${theme.fonts.sizes.small};
     @media ${theme.media.lteMedium} {
       font-size: ${theme.fonts.sizes.small};
     }
