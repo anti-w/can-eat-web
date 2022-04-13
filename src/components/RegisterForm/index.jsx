@@ -48,7 +48,7 @@ export const RegisterForm = () => {
       >
         <Form>
           <Styled.FormControl>
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Nome</label>
             <Field id="name" name="name" type="text" placeHolder="Insira seu nome" />
             <ErrorMessage
               name="name"
@@ -66,7 +66,7 @@ export const RegisterForm = () => {
           </Styled.FormControl>
 
           <Styled.FormControl>
-            <label htmlFor="password" >Password</label>
+            <label htmlFor="password" >Senha</label>
             <Field
               id="password"
               name="password"
@@ -81,13 +81,13 @@ export const RegisterForm = () => {
 
           <Styled.FormControl>
             <label htmlFor="password">
-              Confirm password
+              Confirme a senha
             </label>
             <Field
               id="confirmpassword"
               name="confirmpassword"
               type="password"
-              placeHolder="Confirme sua senha"
+              placeHolder="Repita sua senha"
             />
             <ErrorMessage
               name="confirmpassword"
