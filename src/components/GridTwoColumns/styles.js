@@ -35,7 +35,6 @@ export const ImgContainer = styled.div`
     }
     @media ${theme.media.lteMedium} {
       padding: 0;
-      margin-top: 2rem;
       img {
         width: 25rem;
         height: 25rem;

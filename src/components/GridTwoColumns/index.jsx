@@ -21,7 +21,10 @@ export const GridTwoColumns = () => {
           Comece um estilo de vida que durará para sempre!
         </Description>
         <br></br>
-        <Button textInside="Conheça gratuitamente" />
+        <Button
+          textInside="Conheça gratuitamente"
+          typeAction="localhost:3000/foods"
+        />
       </Styled.FlexGrid>
     </SectionContainer>
   );

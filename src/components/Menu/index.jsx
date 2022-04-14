@@ -20,42 +20,28 @@ export const Menu = ({
         aria-label="Open/Close Menu"
         visible={visible}
       >
-        <div
-          style={{
-            display: 'flex',
-            width: '100%',
-            padding: '2rem',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexDirection: 'columns',
-          }}
-        >
-          {visible ? (
-            <>
-              <h2>Logo</h2>
+        <Styled.MenuHeader>
+          <h2>Logo</h2>
+          <Styled.ButtonIcons>
+            {visible ? (
               <XSquareFill
                 aria-label="Close menu"
+                style={{ marginRight: '2rem' }}
                 onClick={() => setVisible(true)}
               />
-              <Toggle
-                theme={theme}
-                toggleTheme={toggleTheme}
-              />
-            </>
-          ) : (
-            <>
-              <h2>Logo</h2>
+            ) : (
               <FilterSquare
+                style={{ marginRight: '2rem' }}
                 onClick={() => setVisible(true)}
                 aria-label="Open menu"
               />
-              <Toggle
-                theme={theme}
-                toggleTheme={toggleTheme}
-              />
-            </>
-          )}
-        </div>
+            )}
+            <Toggle
+              theme={theme}
+              toggleTheme={toggleTheme}
+            />
+          </Styled.ButtonIcons>
+        </Styled.MenuHeader>
       </Styled.Button>
       <Styled.Container
         onClick={() => setVisible(false)}
@@ -75,6 +61,12 @@ export const Menu = ({
               textInside="Entrar"
               typeAction="login"
             />
+            {!visible && (
+              <Toggle
+                theme={theme}
+                toggleTheme={toggleTheme}
+              />
+            )}
           </Styled.ButtonsContainer>
         </Styled.MenuContainer>
       </Styled.Container>

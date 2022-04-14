@@ -34,8 +34,6 @@ export const FormContainer = styled.div`
     border: 2px solid gray;
     padding-top: 5rem;
     font-size: 1.4rem;
-    width: 46.5rem;
-    height: 52.5rem;
     align-items: center;
     justify-content: center;
     padding: 2rem 2.5rem;
