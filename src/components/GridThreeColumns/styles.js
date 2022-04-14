@@ -2,8 +2,9 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   ${({ theme }) => css`
-    height: 100vh;
     display: flex;
+    height: 100vh;
+    padding: 0;
     text-align: center;
     align-items: center;
     justify-content: center;

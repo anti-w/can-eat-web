@@ -50,7 +50,7 @@ export const RegisterForm = ({ theme, toggleTheme }) => {
             }}
           >
             <Heading size="medium" as="h2">
-              Bem vindo!
+              Bem vindo (a)!
             </Heading>
             <div
               style={{
@@ -142,21 +142,15 @@ export const RegisterForm = ({ theme, toggleTheme }) => {
                 component={TextError}
               />
             </Styled.FormControl>
+            <Styled.FooterForm>
+              <button>Cadastrar</button>
+              <p>
+                {`Você possui cadastro? `}{' '}
+                <a href="/login">Entre</a>{' '}
+              </p>
+            </Styled.FooterForm>
           </Form>
         </Formik>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <Button textInside="Cadastrar" />
-          <p>
-            {`Você possui cadastro? `}{' '}
-            <a href="/login">Entre</a>{' '}
-          </p>
-        </div>
       </Styled.FormContainer>
 
       <img

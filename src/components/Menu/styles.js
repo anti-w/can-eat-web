@@ -37,8 +37,8 @@ export const ButtonsContainer = styled.div`
 export const MenuContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
-    padding: 0.3rem 4.2rem;
     text-align: center;
+    padding: 0 4rem;
     justify-content: space-between;
     align-items: center;
     h1 {
@@ -58,7 +58,8 @@ export const Button = styled.div`
   ${({ theme, visible }) => css`
     z-index: 6;
     position: fixed;
-    padding: 2rem;
+    display: none;
+    padding: 2.4rem;
     top: 0;
     color: ${({ theme }) => theme.menuIcon};
     width: 100%;

@@ -1,5 +1,34 @@
 import styled, { css } from 'styled-components';
 
+export const Container = styled.div`
+  ${({ theme }) => css`
+  display: flex;
+  height: 100vh;
+  justify-content: center ;
+  align-items: center ;  
+  img{
+    margin-left: 8rem;
+  }
+
+  p{
+    display: flex ;
+    width: 100% ;
+    justify-content: center ;
+    align-items: center ;
+    color:${theme.menuIcon} ;
+  }
+  p a{
+    color: ${theme.heading};
+    cursor: pointer ;
+    margin-left: 0.5rem;
+  }
+
+  @media ${theme.media.lteMedium}{
+    img{
+      display: none ;
+    }`}
+`;
+
 export const FormContainer = styled.div`
   ${({ theme }) => css`
     border: 2px solid gray;
@@ -9,7 +38,7 @@ export const FormContainer = styled.div`
     height: 52.5rem;
     align-items: center;
     justify-content: center;
-    padding: 2rem 1.5rem;
+    padding: 2rem 2.5rem;
     border-radius: 15px;
     margin-right: 4.2rem;
     background-color: ${theme.formBg};
@@ -70,31 +99,23 @@ export const HeadingContainer = styled.div`
   `}
 `;
 
-export const Container = styled.div`
+export const FooterForm = styled.div`
   ${({ theme }) => css`
-  display: flex;
-  height: 100vh;
-  justify-content: center ;
-  align-items: center ;  
-  img{
-    margin-left: 8rem;
-  }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  p{
-    display: flex ;
-    width: 100% ;
-    justify-content: center ;
-    align-items: center ;
-    color:${theme.menuIcon} ;
-  }
-  p a{
-    color: ${theme.heading};
-    cursor: pointer ;
-    margin-left: 0.5rem;
-  }
-
-  @media ${theme.media.lteMedium}{
-    img{
-      display: none ;
-    }`}
+    button {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: ${theme.white};
+      cursor: pointer;
+      border: none;
+      width: 18rem;
+      height: 4.2rem;
+      border-radius: 0.5rem;
+      background: ${theme.heading};
+    }
+  `}
 `;
