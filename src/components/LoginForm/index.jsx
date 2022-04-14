@@ -1,3 +1,5 @@
+import P from 'prop-types';
+
 import * as Styled from './styles';
 import * as Yup from 'yup';
 import React, { useContext } from 'react';
@@ -7,8 +9,12 @@ import { AuthContext } from '../../context/authContext';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { TextError } from '../TextError';
 import { Heading } from '../Heading';
+import { Toggle } from '../Toggle';
+import { Link } from 'react-router-dom';
+import { House } from '@styled-icons/bootstrap';
+import { Button } from '../Button';
 
-export const LoginForm = () => {
+export const LoginForm = ({theme, toggleTheme}) => {
   const { authenticated, login } = useContext(AuthContext);
 
   const initialValues = {
@@ -31,9 +37,29 @@ export const LoginForm = () => {
     <Styled.Container>
       <Styled.FormContainer>
         <Styled.HeadingContainer>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            paddingBottom: '2rem',
+          }}>
           <Heading size="medium" as="h2">
             Bem vindo!
           </Heading>
+          <div>
+          <Toggle theme={theme} toggleTheme={toggleTheme} />
+          <Link to="/">
+            <House className='houseIcon'
+                size={28}
+                
+                style={{
+                  marginInline: '15px',
+                  
+                }}
+              />
+            </Link>
+            </div>
+          </div>
           <Heading size="small" as="h3">
             Cadastre-se
           </Heading>
@@ -75,25 +101,34 @@ export const LoginForm = () => {
           </Form>
         </Formik>
         <Styled.Remember>
-          <label>
-            <input type="checkbox" />
-            Lembre-me
-          </label>
           <a>Esqueceu sua senha?</a>
         </Styled.Remember>
-        <button type="submit">Login</button>
-        {/* <p>{String(authenticated)}</p> */}
-        <p>
-          {`Você possui cadastro? `}{' '}
-          <a href="/register">Cadastre-se</a>{' '}
-        </p>
+        <div 
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+          >
+          <Button textInside='Login' />
+          {/* <p>{String(authenticated)}</p> */}
+          <p>
+            {`Você possui cadastro? `}{' '}
+            <a href="/register">Cadastre-se</a>{' '}
+          </p>
+          </div>
       </Styled.FormContainer>
 
       <img
-        src="https://cdn-icons.flaticon.com/png/512/3967/premium/3967391.png?token=exp=1649859445~hmac=2faffb9c8f66de6520bc45b513abd3f2"
+        src="https://cdn-icons-png.flaticon.com/512/2114/2114485.png"
         width={383}
         height={415}
       />
     </Styled.Container>
   );
 };
+
+LoginForm.propTypes={
+  theme: P.string.isRequired,
+  toggleTheme: P.func.isRequired,
+}

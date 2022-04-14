@@ -14,12 +14,10 @@ export const linksLoginMock = [
 const Login = ({ theme,toggleTheme }) => {
     return(
         <>
-        <Menu
-        links={linksLoginMock}
-        theme={theme}
-        toggleTheme={toggleTheme}
-      />
-      <LoginForm />
+      <LoginForm
+       toggleTheme={toggleTheme}
+       theme={theme}
+       />
       </>
     );
 }

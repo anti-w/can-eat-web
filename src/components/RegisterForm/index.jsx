@@ -52,18 +52,26 @@ export const RegisterForm = ({ theme, toggleTheme }) => {
             <Heading size="medium" as="h2">
               Bem vindo!
             </Heading>
-            <Toggle
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              paddingBottom: '2rem'
+            }}>
+            <Toggle 
               theme={theme}
               toggleTheme={toggleTheme}
             />
             <Link to="/">
-              <House
-                size={24}
+              <House className='houseIcon'
+                size={28}
+                
                 style={{
-                  marginRight: '10px',
+                  marginInline: '15px',
+                  
                 }}
               />
             </Link>
+            </div>
           </div>
           <Heading size="small" as="h3">
             Cadastre-se

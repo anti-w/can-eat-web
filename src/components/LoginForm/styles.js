@@ -2,19 +2,24 @@ import styled, { css } from 'styled-components';
 
 export const FormContainer = styled.div`
   ${({ theme }) => css`
-    border: 2px solid gray;
-    width:50.5rem;//a
-    align-items: center ;
-    justify-content: center ;
-    padding: 3rem 2.5rem;
+  border: 2px solid gray;
+    padding-top: 5rem;
+    font-size: 1.4rem;
+    width: 46.5rem;
+    height: 52.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
     border-radius: 15px;
-    margin-right:4.2rem ;
+    margin-right: 4.2rem;
     background-color: ${theme.formBg};
   
     form{
-      border-radius: 10px ;
+      width: 100%;
+      border-radius: 10px;
       border: 2px solid gray;
-      padding: 1rem 2rem 0rem 2rem;
+      padding: 1.25rem 1rem;
+      padding-bottom: -1rem;
     }
 
     label {
@@ -27,13 +32,13 @@ export const FormContainer = styled.div`
     input[type='text'],
     input[type='email'],
     input[type='password'] {
-      display: block;
-      width: 100%;
-      height: 4.2rem ;//a
+      display: flex;
+      width: 85%;
+      height: 3.6rem;
       padding: 0.6rem 1.2rem;
       font-size: 1.4rem;
       line-height: 1.42857143;
-      color: #000 ;
+      color: #000;
       background-color: #fff;
       border: 0.2rem solid #282828;
       border-radius: 0.4rem;
@@ -57,11 +62,6 @@ export const Remember = styled.div`
   display: flex;
   align-items: center ;
 
-  label{
-    font-size: small;
-    color:${theme.menuIcon};
-    font-weight: 200;
-  }
   a{
     font-size: small ;
     cursor: pointer ;
@@ -76,7 +76,6 @@ export const HeadingContainer = styled.div`
   margin-bottom: 3rem;
   
   h2 {
-    margin-bottom: 2rem;
     font-weight: 200;
   }
   h3{
@@ -106,6 +105,7 @@ export const Container = styled.div`
     justify-content: center ;
     align-items: center ;
     color:${theme.menuIcon} ;
+    font-size: 1.4rem ;
   }
   p a{
     color: ${theme.heading};
