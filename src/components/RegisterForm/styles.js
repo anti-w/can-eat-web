@@ -19,11 +19,11 @@ export const FormContainer = styled.div`
       border-radius: 10px;
       border: 2px solid gray;
       padding: 1.25rem 1rem;
-      padding-bottom: -1rem;
     }
 
     label {
       font-weight: bold;
+      font-size: 1.3rem;
       display: flex;
       margin-bottom: 5px;
       color: ${({ theme }) => theme.heading};
@@ -36,9 +36,7 @@ export const FormContainer = styled.div`
       width: 85%;
       height: 3.6rem;
       padding: 0.6rem 1.2rem;
-      font-size: 1.4rem;
-      line-height: 1.42857143;
-      color: #000;
+      font-size: 1.3rem;
       background-color: #fff;
       border: 0.2rem solid #282828;
       border-radius: 0.4rem;
@@ -59,16 +57,15 @@ export const HeadingContainer = styled.div`
     margin-bottom: 1.5rem;
 
     h2 {
-      font-weight: bold;
+      font-weight: 300;
       font-size: 22px;
     }
     h3 {
-      margin: 1rem 0;
+      padding: 1rem;
       font-weight: 500;
       font-size: 18px;
 
       color: ${theme.menuIcon};
-      padding-left: 1rem;
     }
   `}
 `;
