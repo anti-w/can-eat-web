@@ -12,7 +12,7 @@ export const Container = styled.div`
     width: 28rem;
     height: 25rem;
     background: ${theme.background};
-    border: 1.5px solid ${theme.primaryText};
+    border: 1.75px solid gray;
     border-radius: 10%;
     flex-direction: column;
     box-shadow: -10px 8px 10px -9px #000;

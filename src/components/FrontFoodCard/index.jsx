@@ -2,16 +2,8 @@ import React, { useContext, useState } from 'react';
 import * as Styled from './styles';
 import P from 'prop-types';
 
-import { EggFill } from '@styled-icons/bootstrap';
-import { FireIcon } from '@heroicons/react/solid';
-import {
-  PizzaSlice,
-  BreadSlice,
-} from '@styled-icons/fa-solid';
-
-import { FoodCardIcon } from '../FoodCardIcons';
-import { Heading } from '../Heading';
 import { CalculatorContext } from '../../context/calculatorContext';
+import { TittleWithIcons } from '../TittleWithIcons';
 
 export const FrontFoodCard = ({
   setIsFlipped,
@@ -27,23 +19,7 @@ export const FrontFoodCard = ({
       <Styled.TitleWithIcons
         onClick={() => setIsFlipped(!isFlipped)}
       >
-        <Heading as="h4" size="xsmall">
-          Abóbora
-        </Heading>
-        <Styled.IconsContainer>
-          <FoodCardIcon bgColor="proteins">
-            <EggFill color="white" width={13} />
-          </FoodCardIcon>
-          <FoodCardIcon bgColor="fats">
-            <PizzaSlice color="white" width={13} />
-          </FoodCardIcon>
-          <FoodCardIcon bgColor="calories">
-            <FireIcon color="white" width={13} />
-          </FoodCardIcon>
-          <FoodCardIcon bgColor="carb">
-            <BreadSlice color="white" width={13} />
-          </FoodCardIcon>
-        </Styled.IconsContainer>
+        <TittleWithIcons title="Teste" />
       </Styled.TitleWithIcons>
       <Styled.NutrientsContainer>
         <p>{100 * (grams / 100)}cals</p>
@@ -73,7 +49,6 @@ export const FrontFoodCard = ({
             order('Name', 1, 1, 2, 3, 100);
             order('Name2', 50, 50, 2, 3, 100);
             saveMeal('Teste refeição', foods);
-            console.log(carbsTotal);
           }}
         >
           Order

@@ -8,10 +8,9 @@ import P from 'prop-types';
 export const CalculatorContext = createContext();
 
 export const CalculatorProvider = ({ children }) => {
-  const foods = [];
   const [meal, setMeal] = useState({
     name: '',
-    foods: foods,
+    foods: [],
   });
 
   const order = (
@@ -22,7 +21,7 @@ export const CalculatorProvider = ({ children }) => {
     fats,
     grams,
   ) => {
-    foods.push({
+    meal.foods.push({
       name: name,
       carbs: carbs,
       cals: cals,
@@ -30,7 +29,7 @@ export const CalculatorProvider = ({ children }) => {
       proteins: proteins,
       grams: grams,
     });
-    console.log('Foods ~>', foods);
+    console.log('Foods ~>', meal.foods);
   };
 
   const carbsTotal = meal.foods.reduce(
@@ -61,7 +60,7 @@ export const CalculatorProvider = ({ children }) => {
   return (
     <CalculatorContext.Provider
       value={{
-        foods,
+        foods: meal.foods,
         order,
         saveMeal,
         carbsTotal,
