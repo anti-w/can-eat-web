@@ -16,5 +16,6 @@ FoodCardIcon.propTypes = {
     'calories',
     'proteins',
     'fats',
+    'trash',
   ]),
 };

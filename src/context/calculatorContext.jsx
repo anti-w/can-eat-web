@@ -8,10 +8,15 @@ import P from 'prop-types';
 export const CalculatorContext = createContext();
 
 export const CalculatorProvider = ({ children }) => {
+  const [food, setFood] = useState([]);
   const [meal, setMeal] = useState({
     name: '',
-    foods: [],
+    foods: food,
   });
+
+  const unorder = (name) => {
+    return food.filter((food) => name == !food.name);
+  };
 
   const order = (
     name,
@@ -21,15 +26,19 @@ export const CalculatorProvider = ({ children }) => {
     fats,
     grams,
   ) => {
-    meal.foods.push({
-      name: name,
-      carbs: carbs,
-      cals: cals,
-      fats: fats,
-      proteins: proteins,
-      grams: grams,
-    });
-    console.log('Foods ~>', meal.foods);
+    if (food.find((food) => food.name === name))
+      return alert(`${name} já foi adicionado.`);
+    setFood((food) => [
+      ...food,
+      {
+        name,
+        carbs,
+        proteins,
+        cals,
+        fats,
+        grams,
+      },
+    ]);
   };
 
   const carbsTotal = meal.foods.reduce(
@@ -60,8 +69,9 @@ export const CalculatorProvider = ({ children }) => {
   return (
     <CalculatorContext.Provider
       value={{
-        foods: meal.foods,
+        food,
         order,
+        unorder,
         saveMeal,
         carbsTotal,
         calsTotal,

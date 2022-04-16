@@ -30,6 +30,7 @@ const icons = {
     carb: '#FFC22B',
     proteins: '#3B70F8',
     fats: '#2ECC71',
+    trash: '#F84D4D',
   },
 };
 

@@ -1,21 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import P from 'prop-types';
 import * as Styled from './styles';
 
-import { EggFill } from '@styled-icons/bootstrap';
-import { FireIcon } from '@heroicons/react/solid';
-import {
-  PizzaSlice,
-  BreadSlice,
-} from '@styled-icons/fa-solid';
+import { CalculatorContext } from '../../context/calculatorContext';
 
-import { Heading } from '../Heading';
+import { TittleWithIcons } from '../TittleWithIcons';
+import { TrashFill } from '@styled-icons/bootstrap';
 import { FoodCardIcon } from '../FoodCardIcons';
 
 export const CalculatorModal = ({
   setDisplayCalculatorModal,
   displayCalculatorModal,
 }) => {
+  const { food, unorder } = useContext(CalculatorContext);
+
   return (
     <Styled.Container
       displayCalculatorModal={displayCalculatorModal}
@@ -29,25 +27,24 @@ export const CalculatorModal = ({
           Close
         </button>
         <Styled.FoodsContainer>
-          <Styled.TitleWithIcons>
-            <Heading as="h4" size="xsmall">
-              Abóbora
-            </Heading>
-            <Styled.IconsContainer>
-              <FoodCardIcon bgColor="proteins">
-                <EggFill color="white" width={13} />
-              </FoodCardIcon>
-              <FoodCardIcon bgColor="fats">
-                <PizzaSlice color="white" width={13} />
-              </FoodCardIcon>
-              <FoodCardIcon bgColor="calories">
-                <FireIcon color="white" width={13} />
-              </FoodCardIcon>
-              <FoodCardIcon bgColor="carb">
-                <BreadSlice color="white" width={13} />
-              </FoodCardIcon>
-            </Styled.IconsContainer>
-          </Styled.TitleWithIcons>
+          {food.map((foods, i) => (
+            <Styled.TitleWithIcons key={i}>
+              <TittleWithIcons title={foods.name} />
+              <div
+                style={{
+                  paddingLeft: '20px',
+                  cursor: 'pointer',
+                }}
+                onClick={(evt) =>
+                  console.log(evt.currentTarget)
+                }
+              >
+                <FoodCardIcon bgColor="trash">
+                  <TrashFill height={13} color="white" />
+                </FoodCardIcon>
+              </div>
+            </Styled.TitleWithIcons>
+          ))}
         </Styled.FoodsContainer>
       </Styled.CalculatorContainer>
     </Styled.Container>

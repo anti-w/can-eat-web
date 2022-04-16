@@ -108,6 +108,5 @@ export const TitleWithIcons = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 5vh;
   `}
 `;

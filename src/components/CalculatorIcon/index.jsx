@@ -9,13 +9,13 @@ import { CalculatorContext } from '../../context/calculatorContext';
 export const CalculatorIcon = ({
   setDisplayCalculatorModal,
 }) => {
-  const { foods } = useContext(CalculatorContext);
-  console.log(foods);
+  const { food } = useContext(CalculatorContext);
+  console.log(food);
 
   return (
     <>
       <Styled.CountItensContainer>
-        {foods.length}
+        {food.length}
       </Styled.CountItensContainer>
       <Styled.Container
         as="button"

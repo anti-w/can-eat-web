@@ -8,47 +8,59 @@ import { TittleWithIcons } from '../TittleWithIcons';
 export const FrontFoodCard = ({
   setIsFlipped,
   isFlipped,
+  data,
 }) => {
-  const [grams, setGrams] = useState(100);
-  const { order, foods, saveMeal, carbsTotal } = useContext(
+  const [grams, setGrams] = useState(1);
+  const { order, saveMeal, carbsTotal } = useContext(
     CalculatorContext,
   );
+  const { nome, grupoAlimentar, nutrientes } = data;
+
+  const {
+    Energiakcal: cals,
+    Proteinag: proteins,
+    Carboidratototalg: carbs,
+    Lipidiosg: fats,
+  } = nutrientes;
 
   return (
     <Styled.Container>
       <Styled.TitleWithIcons
         onClick={() => setIsFlipped(!isFlipped)}
       >
-        <TittleWithIcons title="Teste" />
+        <TittleWithIcons title={nome} />
       </Styled.TitleWithIcons>
       <Styled.NutrientsContainer>
-        <p>{100 * (grams / 100)}cals</p>
+        <p>{cals * grams}cals</p>
         <p>P/G/C</p>
         <p>
-          {62 * (grams / 100)}/{55 * (grams / 100)}/
-          {102 * (grams / 100)}
+          {proteins * grams}/{fats * grams}/{carbs * grams}
         </p>
       </Styled.NutrientsContainer>
       <Styled.DescriptionContainer
         onClick={() => setIsFlipped(!isFlipped)}
       >
-        <p>{`Abóbora, cabotian (japonesa), c/ quiabo, refogado (c/ óleo, cebola e alho), c/ salsa, c/ sal, << Pumpkin, squash, cabotian, with okra, braised (with oil, onion and garlic, withsalthdiasuhduiashduiashduiahsuik`}</p>
+        <p>{nome}</p>
       </Styled.DescriptionContainer>
       <Styled.ButtonsContainer>
         <Styled.CustomPlusCircleFill
-          onClick={() => setGrams(grams + 100)}
+          onClick={() => setGrams(grams + 1)}
         />
         <input value={grams + 'g'} />
         <Styled.CustomDashCircleFill
-          onClick={() =>
-            grams >= 100 && setGrams(grams - 100)
-          }
+          onClick={() => grams >= 1 && setGrams(grams - 1)}
         />
+
         <button
           onClick={() => {
-            order('Name', 1, 1, 2, 3, 100);
-            order('Name2', 50, 50, 2, 3, 100);
-            saveMeal('Teste refeição', foods);
+            order(
+              nome,
+              carbs * grams,
+              proteins * grams,
+              cals * grams,
+              fats * grams,
+              grams,
+            );
           }}
         >
           Order
@@ -61,4 +73,5 @@ export const FrontFoodCard = ({
 FrontFoodCard.propTypes = {
   setIsFlipped: P.func,
   isFlipped: P.bool,
+  data: P.object.isRequired,
 };

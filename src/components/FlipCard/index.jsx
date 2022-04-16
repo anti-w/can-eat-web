@@ -5,7 +5,7 @@ import ReactFlipCard from 'react-card-flip';
 import { BackFoodCard } from '../BackFoodCard';
 import { FrontFoodCard } from '../FrontFoodCard';
 
-export const FlipCard = () => {
+export const FlipCard = ({ dataForFront }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   return (
     <ReactFlipCard
@@ -15,6 +15,7 @@ export const FlipCard = () => {
       isFlipped={isFlipped}
     >
       <FrontFoodCard
+        data={dataForFront}
         isFlipped={isFlipped}
         setIsFlipped={setIsFlipped}
       />
@@ -25,4 +26,8 @@ export const FlipCard = () => {
       />
     </ReactFlipCard>
   );
+};
+
+FlipCard.propTypes = {
+  dataForFront: P.object.isRequired,
 };

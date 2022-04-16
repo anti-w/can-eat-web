@@ -26,4 +26,7 @@ const backgroundColor = {
   fats: (theme) => css`
     background: ${theme.icons.bgColors.fats};
   `,
+  trash: (theme) => css`
+    background: ${theme.icons.bgColors.trash};
+  `,
 };
