@@ -15,7 +15,7 @@ export const CalculatorProvider = ({ children }) => {
   });
 
   const unorder = (name) => {
-    return food.filter((food) => name == !food.name);
+    setFood(food.filter((foods) => foods.name !== name));
   };
 
   const order = (
@@ -41,22 +41,22 @@ export const CalculatorProvider = ({ children }) => {
     ]);
   };
 
-  const carbsTotal = meal.foods.reduce(
+  const carbsTotal = food.reduce(
     (acc, curr) => acc + curr.carbs,
     0,
   );
 
-  const calsTotal = meal.foods.reduce(
+  const calsTotal = food.reduce(
     (acc, curr) => acc + curr.cals,
     0,
   );
 
-  const fatsTotal = meal.foods.reduce(
+  const fatsTotal = food.reduce(
     (acc, curr) => acc + curr.fats,
     0,
   );
 
-  const proteinsTotal = meal.foods.reduce(
+  const proteinsTotal = food.reduce(
     (acc, curr) => acc + curr.proteins,
     0,
   );

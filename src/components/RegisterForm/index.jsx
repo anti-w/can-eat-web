@@ -1,16 +1,17 @@
 import * as Styled from './styles';
 import * as Yup from 'yup';
 import P from 'prop-types';
+import { Link } from 'react-router-dom';
+
+import { House } from '@styled-icons/bootstrap';
 
 import { registerUser } from '../../services/register';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+
 import { TextError } from '../TextError';
 import { Heading } from '../Heading';
 import { Toggle } from '../Toggle';
-import { Button } from '../Button';
-import { House } from '@styled-icons/bootstrap';
-import { Link } from 'react-router-dom';
 
 export const RegisterForm = ({ theme, toggleTheme }) => {
   const initialValues = {
@@ -91,7 +92,7 @@ export const RegisterForm = ({ theme, toggleTheme }) => {
                 id="name"
                 name="name"
                 type="text"
-                placeHolder="Insira seu nome"
+                placeholder="Insira seu nome"
               />
               <ErrorMessage
                 name="name"
@@ -105,7 +106,7 @@ export const RegisterForm = ({ theme, toggleTheme }) => {
                 id="email"
                 name="email"
                 type="email"
-                placeHolder="Insira seu e-mail"
+                placeholder="Insira seu e-mail"
               />
               <ErrorMessage
                 name="email"
@@ -119,7 +120,7 @@ export const RegisterForm = ({ theme, toggleTheme }) => {
                 id="password"
                 name="password"
                 type="password"
-                placeHolder="Insira sua senha"
+                placeholder="Insira sua senha"
               />
               <ErrorMessage
                 name="password"
@@ -135,7 +136,7 @@ export const RegisterForm = ({ theme, toggleTheme }) => {
                 id="confirmpassword"
                 name="confirmpassword"
                 type="password"
-                placeHolder="Repita sua senha"
+                placeholder="Repita sua senha"
               />
               <ErrorMessage
                 name="confirmpassword"

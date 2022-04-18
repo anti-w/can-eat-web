@@ -12,9 +12,8 @@ import { Heading } from '../Heading';
 import { Toggle } from '../Toggle';
 import { Link } from 'react-router-dom';
 import { House } from '@styled-icons/bootstrap';
-import { Button } from '../Button';
 
-export const LoginForm = ({theme, toggleTheme}) => {
+export const LoginForm = ({ theme, toggleTheme }) => {
   const { authenticated, login } = useContext(AuthContext);
 
   const initialValues = {
@@ -37,27 +36,31 @@ export const LoginForm = ({theme, toggleTheme}) => {
     <Styled.Container>
       <Styled.FormContainer>
         <Styled.HeadingContainer>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            paddingBottom: '2rem',
-          }}>
-          <Heading size="medium" as="h2">
-            Bem vindo!
-          </Heading>
-          <div>
-          <Toggle theme={theme} toggleTheme={toggleTheme} />
-          <Link to="/">
-            <House className='houseIcon'
-                size={28}
-                
-                style={{
-                  marginInline: '15px',
-                  
-                }}
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              paddingBottom: '2rem',
+            }}
+          >
+            <Heading size="medium" as="h2">
+              Bem vindo!
+            </Heading>
+            <div>
+              <Toggle
+                theme={theme}
+                toggleTheme={toggleTheme}
               />
-            </Link>
+              <Link to="/">
+                <House
+                  className="houseIcon"
+                  size={28}
+                  style={{
+                    marginInline: '15px',
+                  }}
+                />
+              </Link>
             </div>
           </div>
           <Heading size="small" as="h3">
@@ -77,7 +80,7 @@ export const LoginForm = ({theme, toggleTheme}) => {
                 id="email"
                 name="email"
                 type="email"
-                placeHolder="Insira seu e-mail"
+                placeholder="Insira seu e-mail"
               />
               <ErrorMessage
                 name="email"
@@ -91,32 +94,31 @@ export const LoginForm = ({theme, toggleTheme}) => {
                 id="password"
                 name="password"
                 type="password"
-                placeHolder="Insira sua senha"
+                placeholder="Insira sua senha"
               />
               <ErrorMessage
                 name="password"
                 component={TextError}
               />
             </Styled.FormControl>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <button type="submit"> Entrar</button>
+              <p>
+                {`Você possui cadastro? `}{' '}
+                <a href="/register">Cadastre-se</a>{' '}
+              </p>
+            </div>
           </Form>
         </Formik>
         <Styled.Remember>
           <a>Esqueceu sua senha?</a>
         </Styled.Remember>
-        <div 
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-          >
-          <Button textInside='Login' />
-          {/* <p>{String(authenticated)}</p> */}
-          <p>
-            {`Você possui cadastro? `}{' '}
-            <a href="/register">Cadastre-se</a>{' '}
-          </p>
-          </div>
       </Styled.FormContainer>
 
       <img
@@ -128,7 +130,7 @@ export const LoginForm = ({theme, toggleTheme}) => {
   );
 };
 
-LoginForm.propTypes={
+LoginForm.propTypes = {
   theme: P.string.isRequired,
   toggleTheme: P.func.isRequired,
-}
+};

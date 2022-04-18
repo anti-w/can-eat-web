@@ -2,8 +2,8 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   ${({ theme }) => css`
-    margin: 6rem;
     display: flex;
+    padding-top: 6rem;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;

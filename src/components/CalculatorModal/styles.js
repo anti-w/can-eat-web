@@ -16,18 +16,17 @@ export const IconsContainer = Icons;
 
 export const Container = styled.div`
   ${({ theme, displayCalculatorModal }) => css`
+    z-index: 99999;
     background-color: rgba(0, 0, 0, 0.25);
-    display: flex;
+    top: 0;
+    position: fixed;
+    display: none;
     padding: 2rem;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    position: fixed;
+    width: 100%;
     visibility: hidden;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     ${displayCalculatorModal && calculatorVisible()}
   `}
 `;
@@ -35,6 +34,7 @@ export const Container = styled.div`
 const calculatorVisible = () => css`
   visibility: visible;
   opacity: 1;
+  display: flex;
 `;
 
 export const CalculatorContainer = styled.div`

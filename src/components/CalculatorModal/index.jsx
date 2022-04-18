@@ -12,7 +12,9 @@ export const CalculatorModal = ({
   setDisplayCalculatorModal,
   displayCalculatorModal,
 }) => {
-  const { food, unorder } = useContext(CalculatorContext);
+  const { food, unorder, calsTotal } = useContext(
+    CalculatorContext,
+  );
 
   return (
     <Styled.Container
@@ -31,13 +33,11 @@ export const CalculatorModal = ({
             <Styled.TitleWithIcons key={i}>
               <TittleWithIcons title={foods.name} />
               <div
+                onClick={() => unorder(foods.name)}
                 style={{
                   paddingLeft: '20px',
                   cursor: 'pointer',
                 }}
-                onClick={(evt) =>
-                  console.log(evt.currentTarget)
-                }
               >
                 <FoodCardIcon bgColor="trash">
                   <TrashFill height={13} color="white" />
@@ -46,6 +46,7 @@ export const CalculatorModal = ({
             </Styled.TitleWithIcons>
           ))}
         </Styled.FoodsContainer>
+        <h1 style={{ color: 'white' }}>{calsTotal}</h1>
       </Styled.CalculatorContainer>
     </Styled.Container>
   );
