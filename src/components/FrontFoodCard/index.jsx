@@ -3,7 +3,8 @@ import * as Styled from './styles';
 import P from 'prop-types';
 
 import { CalculatorContext } from '../../context/calculatorContext';
-import { TittleWithIcons } from '../TittleWithIcons';
+import { NutrientsIcons } from '../NutrientsIcons';
+import { Heading } from '../Heading';
 
 export const FrontFoodCard = ({
   setIsFlipped,
@@ -11,9 +12,7 @@ export const FrontFoodCard = ({
   data,
 }) => {
   const [grams, setGrams] = useState(1);
-  const { order, saveMeal, carbsTotal } = useContext(
-    CalculatorContext,
-  );
+  const { order } = useContext(CalculatorContext);
   const { nome, grupoAlimentar, nutrientes } = data;
 
   const {
@@ -23,49 +22,52 @@ export const FrontFoodCard = ({
     Lipidiosg: fats,
   } = nutrientes;
 
+  let calsPerGrams = parseFloat((cals * grams).toFixed());
+  let proteinsPerGrams = parseFloat(
+    (proteins * grams).toFixed(),
+  );
+  let fatsPerGrams = parseFloat((fats * grams).toFixed());
+  let carbsPerGrams = parseFloat((carbs * grams).toFixed());
+
   return (
     <Styled.Container>
-      <Styled.TitleWithIcons
-        onClick={() => setIsFlipped(!isFlipped)}
-      >
-        <TittleWithIcons title={nome} />
-      </Styled.TitleWithIcons>
-      <Styled.NutrientsContainer>
-        <p>{cals * grams}cals</p>
-        <p>P/G/C</p>
-        <p>
-          {proteins * grams}/{fats * grams}/{carbs * grams}
-        </p>
-      </Styled.NutrientsContainer>
-      <Styled.DescriptionContainer
-        onClick={() => setIsFlipped(!isFlipped)}
-      >
-        <p>{nome}</p>
-      </Styled.DescriptionContainer>
+      <Styled.TitleWithDescription>
+        <Heading size="xsmall">{nome}</Heading>
+        <h4>{grupoAlimentar}</h4>
+      </Styled.TitleWithDescription>
       <Styled.ButtonsContainer>
-        <Styled.CustomPlusCircleFill
-          onClick={() => setGrams(grams + 1)}
-        />
-        <input value={grams + 'g'} />
-        <Styled.CustomDashCircleFill
-          onClick={() => grams >= 1 && setGrams(grams - 1)}
-        />
-
-        <button
-          onClick={() => {
-            order(
-              nome,
-              carbs * grams,
-              proteins * grams,
-              cals * grams,
-              fats * grams,
-              grams,
-            );
-          }}
-        >
-          Order
-        </button>
+        <h4>{grams * 100 + 'g'}</h4>
+        <Styled.IconsContainer>
+          <Styled.CustomPlusCircleFill
+            onClick={() => setGrams(grams + 1)}
+          />
+          <Styled.CustomDashCircleFill
+            onClick={() =>
+              grams >= 1 && setGrams(grams - 1)
+            }
+          />
+          <Styled.CustomBookAdd
+            onClick={() =>
+              order(
+                nome,
+                carbsPerGrams,
+                proteinsPerGrams,
+                calsPerGrams,
+                fatsPerGrams,
+                grams,
+              )
+            }
+          />
+        </Styled.IconsContainer>
       </Styled.ButtonsContainer>
+      <NutrientsIcons
+        nutrients={[
+          calsPerGrams,
+          proteinsPerGrams,
+          fatsPerGrams,
+          carbsPerGrams,
+        ]}
+      />
     </Styled.Container>
   );
 };

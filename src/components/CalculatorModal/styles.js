@@ -1,10 +1,7 @@
 import styled, { css } from 'styled-components';
-import {
-  TitleWithIcons as Header,
-  IconsContainer as Icons,
-} from '../FrontFoodCard/styles';
+import { IconsContainer as Icons } from '../FrontFoodCard/styles';
 
-export const TitleWithIcons = styled(Header)`
+export const TitleWithIcons = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 1.4rem;

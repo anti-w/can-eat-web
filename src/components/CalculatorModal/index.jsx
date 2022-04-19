@@ -4,7 +4,7 @@ import * as Styled from './styles';
 
 import { CalculatorContext } from '../../context/calculatorContext';
 
-import { TittleWithIcons } from '../TittleWithIcons';
+import { NutrientsIcons } from '../NutrientsIcons';
 import { TrashFill } from '@styled-icons/bootstrap';
 import { FoodCardIcon } from '../FoodCardIcons';
 
@@ -29,22 +29,11 @@ export const CalculatorModal = ({
           Close
         </button>
         <Styled.FoodsContainer>
-          {food.map((foods, i) => (
+          {/* {food.map((foods, i) => (
             <Styled.TitleWithIcons key={i}>
-              <TittleWithIcons title={foods.name} />
-              <div
-                onClick={() => unorder(foods.name)}
-                style={{
-                  paddingLeft: '20px',
-                  cursor: 'pointer',
-                }}
-              >
-                <FoodCardIcon bgColor="trash">
-                  <TrashFill height={13} color="white" />
-                </FoodCardIcon>
-              </div>
+              <Nutrients
             </Styled.TitleWithIcons>
-          ))}
+          ))} */}
         </Styled.FoodsContainer>
         <h1 style={{ color: 'white' }}>{calsTotal}</h1>
       </Styled.CalculatorContainer>

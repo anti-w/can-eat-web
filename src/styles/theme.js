@@ -27,7 +27,7 @@ const fonts = {
 const icons = {
   bgColors: {
     calories: '#F8593B',
-    carb: '#FFC22B',
+    carbs: '#FFC22B',
     proteins: '#3B70F8',
     fats: '#2ECC71',
     trash: '#F84D4D',
