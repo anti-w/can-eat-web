@@ -13,6 +13,8 @@ export const Container = styled.div`
     left: 0;
     right: 0;
     background: ${theme.background};
+    color: ${({ theme }) => theme.menuIcon};
+
 
     @media ${theme.media.lteMedium} {
       height: 100vh;
@@ -21,6 +23,13 @@ export const Container = styled.div`
       ${visible && menuVisible()};       
 
   `}
+`;
+
+export const MenuHeader = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -37,8 +46,8 @@ export const ButtonsContainer = styled.div`
 export const MenuContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
-    padding: 0.3rem 4.2rem;
     text-align: center;
+    padding: 0 4rem;
     justify-content: space-between;
     align-items: center;
     h1 {
@@ -57,8 +66,11 @@ export const MenuContainer = styled.div`
 export const Button = styled.div`
   ${({ theme, visible }) => css`
     z-index: 6;
+    background-color: ${theme.background};
     position: fixed;
-    padding: 2rem;
+    display: none;
+    padding: 2.4rem;
+    margin-bottom: 4rem;
     top: 0;
     color: ${({ theme }) => theme.menuIcon};
     width: 100%;
@@ -77,4 +89,10 @@ export const Button = styled.div`
       justify-content: space-between;
     }
   `}
+`;
+
+export const ButtonIcons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;

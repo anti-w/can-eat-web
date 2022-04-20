@@ -27,9 +27,10 @@ const fonts = {
 const icons = {
   bgColors: {
     calories: '#F8593B',
-    carb: '#FFC22B',
+    carbs: '#FFC22B',
     proteins: '#3B70F8',
     fats: '#2ECC71',
+    trash: '#F84D4D',
   },
 };
 
@@ -40,6 +41,7 @@ export const lightTheme = {
   primaryText: '#1E1E1E',
   heading: '#25CA2B',
   buttonCall: '#F84D4D',
+  formBg: '#fff',
   fonts: fonts,
   spacings: spacings,
   icons: icons,
@@ -55,6 +57,7 @@ export const darkTheme = {
   primaryText: '#f2f2f2',
   heading: '#FB6D1D',
   buttonCall: '#2BB415',
+  formBg: '#1E1E1E',
   fonts: fonts,
   spacings: spacings,
   icons: icons,

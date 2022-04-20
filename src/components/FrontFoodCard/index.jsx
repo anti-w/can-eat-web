@@ -2,83 +2,72 @@ import React, { useContext, useState } from 'react';
 import * as Styled from './styles';
 import P from 'prop-types';
 
-import { EggFill } from '@styled-icons/bootstrap';
-import { FireIcon } from '@heroicons/react/solid';
-import {
-  PizzaSlice,
-  BreadSlice,
-} from '@styled-icons/fa-solid';
-
-import { FoodCardIcon } from '../FoodCardIcons';
-import { Heading } from '../Heading';
 import { CalculatorContext } from '../../context/calculatorContext';
+import { NutrientsIcons } from '../NutrientsIcons';
+import { Heading } from '../Heading';
 
 export const FrontFoodCard = ({
   setIsFlipped,
   isFlipped,
+  data,
 }) => {
-  const [grams, setGrams] = useState(100);
-  const { order, foods, saveMeal, carbsTotal } = useContext(
-    CalculatorContext,
+  const [grams, setGrams] = useState(1);
+  const { order } = useContext(CalculatorContext);
+  const { nome, grupoAlimentar, nutrientes } = data;
+
+  const {
+    Energiakcal: cals,
+    Proteinag: proteins,
+    Carboidratototalg: carbs,
+    Lipidiosg: fats,
+  } = nutrientes;
+
+  let calsPerGrams = parseFloat((cals * grams).toFixed());
+  let proteinsPerGrams = parseFloat(
+    (proteins * grams).toFixed(),
   );
+  let fatsPerGrams = parseFloat((fats * grams).toFixed());
+  let carbsPerGrams = parseFloat((carbs * grams).toFixed());
 
   return (
     <Styled.Container>
-      <Styled.TitleWithIcons
-        onClick={() => setIsFlipped(!isFlipped)}
-      >
-        <Heading as="h4" size="xsmall">
-          Abóbora
-        </Heading>
-        <Styled.IconsContainer>
-          <FoodCardIcon bgColor="proteins">
-            <EggFill color="white" width={13} />
-          </FoodCardIcon>
-          <FoodCardIcon bgColor="fats">
-            <PizzaSlice color="white" width={13} />
-          </FoodCardIcon>
-          <FoodCardIcon bgColor="calories">
-            <FireIcon color="white" width={13} />
-          </FoodCardIcon>
-          <FoodCardIcon bgColor="carb">
-            <BreadSlice color="white" width={13} />
-          </FoodCardIcon>
-        </Styled.IconsContainer>
-      </Styled.TitleWithIcons>
-      <Styled.NutrientsContainer>
-        <p>{100 * (grams / 100)}cals</p>
-        <p>P/G/C</p>
-        <p>
-          {62 * (grams / 100)}/{55 * (grams / 100)}/
-          {102 * (grams / 100)}
-        </p>
-      </Styled.NutrientsContainer>
-      <Styled.DescriptionContainer
-        onClick={() => setIsFlipped(!isFlipped)}
-      >
-        <p>{`Abóbora, cabotian (japonesa), c/ quiabo, refogado (c/ óleo, cebola e alho), c/ salsa, c/ sal, << Pumpkin, squash, cabotian, with okra, braised (with oil, onion and garlic, withsalthdiasuhduiashduiashduiahsuik`}</p>
-      </Styled.DescriptionContainer>
+      <Styled.TitleWithDescription>
+        <Heading size="xsmall">{nome}</Heading>
+        <h4>{grupoAlimentar}</h4>
+      </Styled.TitleWithDescription>
       <Styled.ButtonsContainer>
-        <Styled.CustomPlusCircleFill
-          onClick={() => setGrams(grams + 100)}
-        />
-        <input value={grams + 'g'} />
-        <Styled.CustomDashCircleFill
-          onClick={() =>
-            grams >= 100 && setGrams(grams - 100)
-          }
-        />
-        <button
-          onClick={() => {
-            order('Name', 1, 1, 2, 3, 100);
-            order('Name2', 50, 50, 2, 3, 100);
-            saveMeal('Teste refeição', foods);
-            console.log(carbsTotal);
-          }}
-        >
-          Order
-        </button>
+        <h4>{grams * 100 + 'g'}</h4>
+        <Styled.IconsContainer>
+          <Styled.CustomPlusCircleFill
+            onClick={() => setGrams(grams + 1)}
+          />
+          <Styled.CustomDashCircleFill
+            onClick={() =>
+              grams >= 1 && setGrams(grams - 1)
+            }
+          />
+          <Styled.CustomBookAdd
+            onClick={() =>
+              order(
+                nome,
+                carbsPerGrams,
+                proteinsPerGrams,
+                calsPerGrams,
+                fatsPerGrams,
+                grams,
+              )
+            }
+          />
+        </Styled.IconsContainer>
       </Styled.ButtonsContainer>
+      <NutrientsIcons
+        nutrients={[
+          calsPerGrams,
+          proteinsPerGrams,
+          fatsPerGrams,
+          carbsPerGrams,
+        ]}
+      />
     </Styled.Container>
   );
 };
@@ -86,4 +75,5 @@ export const FrontFoodCard = ({
 FrontFoodCard.propTypes = {
   setIsFlipped: P.func,
   isFlipped: P.bool,
+  data: P.object.isRequired,
 };

@@ -12,9 +12,10 @@ export const FoodCardIcon = ({ bgColor, children }) => {
 FoodCardIcon.propTypes = {
   children: P.node.isRequired,
   bgColor: P.oneOf([
-    'carb',
+    'carbs',
     'calories',
     'proteins',
     'fats',
+    'trash',
   ]),
 };

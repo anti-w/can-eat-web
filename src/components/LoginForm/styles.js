@@ -1,32 +1,23 @@
 import styled, { css } from 'styled-components';
+import { FooterForm as Footer, Container as ContentContainer, FormContainer as Form, HeadingContainer as Title, FormControl as FormSeparator } from '../RegisterForm/styles';
 
-export const Container = styled.div`
+export const Remember = styled.div`
   ${({ theme }) => css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  padding: 1.5rem;
+  justify-content: space-between ;
+  display: flex;
+  align-items: center ;
 
-    label {
-      font-weight: bold;
-      display: flex;
-      margin-bottom: 5px;
-    }
+  a{
+    font-size: small ;
+    cursor: pointer ;
+    color: ${theme.heading};
+  }`}
 
-    input[type='email'],
-    input[type='password'] {
-      display: block;
-      width: 25rem;
-      padding: 0.6rem 1.2rem;
-      font-size: 1.4rem;
-      line-height: 1.42857143;
-      color: #555;
-      background-color: #fff;
-      background-image: none;
-      border: 0.1rem solid #ccc;
-      border-radius: 0.4rem;
-    }
-  `}
-`;
-export const FormControl = styled.div`
-  margin-bottom: 2rem;
-`;
+`; 
+
+export const FooterForm = Footer;
+export const Container = ContentContainer;
+export const FormContainer = Form;
+export const HeadingContainer = Title;
+export const FormControl = FormSeparator;

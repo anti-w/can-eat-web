@@ -27,6 +27,8 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (email, password) => {
+    console.log('clicou');
+
     sign({ email, password })
       .then((response) => {
         localStorage.setItem(

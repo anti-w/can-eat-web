@@ -33,7 +33,7 @@ export const BackFoodCard = ({
           <FoodCardIcon bgColor="calories">
             <FireIcon color="white" width={13} />
           </FoodCardIcon>
-          <FoodCardIcon bgColor="carb">
+          <FoodCardIcon bgColor="carbs">
             <BreadSlice color="white" width={13} />
           </FoodCardIcon>
         </Styled.IconsContainer>

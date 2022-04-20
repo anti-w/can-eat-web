@@ -8,11 +8,15 @@ import P from 'prop-types';
 export const CalculatorContext = createContext();
 
 export const CalculatorProvider = ({ children }) => {
-  const foods = [];
+  const [food, setFood] = useState([]);
   const [meal, setMeal] = useState({
     name: '',
-    foods: foods,
+    foods: food,
   });
+
+  const unorder = (name) => {
+    setFood(food.filter((foods) => foods.name !== name));
+  };
 
   const order = (
     name,
@@ -22,33 +26,37 @@ export const CalculatorProvider = ({ children }) => {
     fats,
     grams,
   ) => {
-    foods.push({
-      name: name,
-      carbs: carbs,
-      cals: cals,
-      fats: fats,
-      proteins: proteins,
-      grams: grams,
-    });
-    console.log('Foods ~>', foods);
+    if (food.find((food) => food.name === name))
+      return alert(`${name} já foi adicionado.`);
+    setFood((food) => [
+      ...food,
+      {
+        name,
+        carbs,
+        proteins,
+        cals,
+        fats,
+        grams,
+      },
+    ]);
   };
 
-  const carbsTotal = meal.foods.reduce(
+  const carbsTotal = food.reduce(
     (acc, curr) => acc + curr.carbs,
     0,
   );
 
-  const calsTotal = meal.foods.reduce(
+  const calsTotal = food.reduce(
     (acc, curr) => acc + curr.cals,
     0,
   );
 
-  const fatsTotal = meal.foods.reduce(
+  const fatsTotal = food.reduce(
     (acc, curr) => acc + curr.fats,
     0,
   );
 
-  const proteinsTotal = meal.foods.reduce(
+  const proteinsTotal = food.reduce(
     (acc, curr) => acc + curr.proteins,
     0,
   );
@@ -61,8 +69,9 @@ export const CalculatorProvider = ({ children }) => {
   return (
     <CalculatorContext.Provider
       value={{
-        foods,
+        food,
         order,
+        unorder,
         saveMeal,
         carbsTotal,
         calsTotal,

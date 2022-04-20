@@ -47,7 +47,10 @@ export const AppRoutes = () => {
             />
             <Route
               path="/register"
-              element={<Register />}
+              element={<Register 
+                theme={theme}
+                toggleTheme={toggleTheme}
+              />}
             />
             <Route
               path="/foods"
@@ -60,7 +63,12 @@ export const AppRoutes = () => {
                 </CalculatorProvider>
               }
             />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" 
+              element={
+                <Login 
+                  theme={theme}
+                  toggleTheme={toggleTheme}
+            />} />
             <Route
               path="/meals"
               element={
