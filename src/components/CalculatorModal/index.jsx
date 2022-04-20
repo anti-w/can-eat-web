@@ -6,28 +6,41 @@ import { CalculatorContext } from '../../context/calculatorContext';
 
 import { NutrientsIcons } from '../NutrientsIcons';
 import { TrashFill } from '@styled-icons/bootstrap';
-import { FoodCardIcon } from '../FoodCardIcons';
 
 export const CalculatorModal = ({
   setDisplayCalculatorModal,
   displayCalculatorModal,
 }) => {
-  const { food, unorder, calsTotal } = useContext(
-    CalculatorContext,
-  );
+  const {
+    food,
+    unorder,
+    calsTotal,
+    proteinsTotal,
+    fatsTotal,
+    carbsTotal,
+  } = useContext(CalculatorContext);
 
   return (
-    <Styled.Container
+    <Styled.ModalContainer
       displayCalculatorModal={displayCalculatorModal}
     >
-      <Styled.CalculatorContainer>
-        <h1>Teste Modal</h1>
+      <div
+        style={{
+          display: 'flex',
+          height: '80vh',
+          alignItems: 'flex-end',
+        }}
+      >
+        <img
+          height="280px"
+          src="https://res.cloudinary.com/dscztnlqq/image/upload/v1650202813/can-eat/4463938_mj3ciw.png"
+        />
+      </div>
 
-        <button
+      <Styled.CalculatorContainer>
+        <Styled.CloseButton
           onClick={() => setDisplayCalculatorModal(false)}
-        >
-          Close
-        </button>
+        />
         <Styled.FoodsContainer>
           {/* {food.map((foods, i) => (
             <Styled.TitleWithIcons key={i}>
@@ -35,9 +48,16 @@ export const CalculatorModal = ({
             </Styled.TitleWithIcons>
           ))} */}
         </Styled.FoodsContainer>
-        <h1 style={{ color: 'white' }}>{calsTotal}</h1>
+        <NutrientsIcons
+          nutrients={[
+            calsTotal,
+            proteinsTotal,
+            fatsTotal,
+            carbsTotal,
+          ]}
+        />
       </Styled.CalculatorContainer>
-    </Styled.Container>
+    </Styled.ModalContainer>
   );
 };
 

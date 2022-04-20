@@ -1,5 +1,8 @@
 import styled, { css } from 'styled-components';
-import { IconsContainer as Icons } from '../FrontFoodCard/styles';
+
+import { IconsContainer } from '../NutrientsIcons/styles';
+
+import { XCircleFill } from '@styled-icons/bootstrap';
 
 export const TitleWithIcons = styled.div`
   justify-content: space-between;
@@ -9,9 +12,8 @@ export const TitleWithIcons = styled.div`
   border-radius: 5%;
   margin: 1rem 0;
 `;
-export const IconsContainer = Icons;
 
-export const Container = styled.div`
+export const ModalContainer = styled.div`
   ${({ theme, displayCalculatorModal }) => css`
     z-index: 99999;
     background-color: rgba(0, 0, 0, 0.25);
@@ -36,22 +38,40 @@ const calculatorVisible = () => css`
 
 export const CalculatorContainer = styled.div`
   ${({ theme }) => css`
-    background: black;
+    background: ${theme.background};
+    margin-left: 3rem;
+    border-radius: 10%;
+    padding: 2rem;
     display: flex;
+    width: 34rem;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+
+    ${IconsContainer} {
+      width: 80%;
+    }
+  `}
+`;
+
+export const CloseButton = styled(XCircleFill)`
+  ${({ theme }) => css`
+    color: #eee;
+    width: 2.4rem;
+    cursor: pointer;
   `}
 `;
 
 export const FoodsContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
-    padding: 4rem 2.2rem;
-    height: 42rem;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 28rem;
     flex-direction: column;
     align-items: center;
-    border: 2px solid gray;
+    border: 1px solid gray;
     overflow-y: scroll;
   `}
 `;
