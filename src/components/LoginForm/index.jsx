@@ -101,19 +101,13 @@ export const LoginForm = ({ theme, toggleTheme }) => {
                 component={TextError}
               />
             </Styled.FormControl>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
+            <Styled.FooterForm>
               <button type="submit"> Entrar</button>
               <p>
                 {`Você possui cadastro? `}{' '}
-                <a href="/register">Cadastre-se</a>{' '}
+                <a href="/register">Entre</a>{' '}
               </p>
-            </div>
+            </Styled.FooterForm>
           </Form>
         </Formik>
         <Styled.Remember>
