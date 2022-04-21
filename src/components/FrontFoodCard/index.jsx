@@ -15,11 +15,13 @@ export const FrontFoodCard = ({
   const { order } = useContext(CalculatorContext);
   const { nome, grupoAlimentar, nutrientes } = data;
 
+  console.log(data);
+
   const {
     Energiakcal: cals,
-    Proteinag: proteins,
+    Proteínag: proteins,
     Carboidratototalg: carbs,
-    Lipidiosg: fats,
+    Lipídiosg: fats,
   } = nutrientes;
 
   let calsPerGrams = parseFloat((cals * grams).toFixed());
