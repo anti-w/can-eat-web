@@ -4,6 +4,7 @@ export const Container = styled.div`
   ${({ theme }) => css`
   display: flex;
   height: 100vh;
+  width: 100% ;
   justify-content: center ;
   align-items: center ;  
   img{
