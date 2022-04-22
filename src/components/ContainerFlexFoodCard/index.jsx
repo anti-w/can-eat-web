@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import * as Styled from './styles';
 
 import { FlipCard } from '../FlipCard';
+import { FilterByGroup } from '../FilterByGroup';
 
 import { getFoodsPerPages } from '../../services/foods';
 
@@ -18,9 +19,11 @@ export const ContainerFlexFoodCard = () => {
 
   return (
     <Styled.Container>
-      {dataForFront.map((food, i) => (
+      <FilterByGroup />
+      {/* {dataForFront.map((food, i) => (
         <FlipCard key={i} dataForFront={food} />
-      ))}
+      ))} */}
+
       <button onClick={() => setPages(pages + 1)}>
         Avançar
       </button>

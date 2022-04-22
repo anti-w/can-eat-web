@@ -2,14 +2,15 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   ${({ theme }) => css`
+    height: 100vh;
     display: flex;
-    padding-top: 6rem;
+    border: 1px solid black;
+    padding-top: 5rem;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
 
     @media ${theme.media.lteMedium} {
-      flex-direction: column;
     }
   `}
 `;

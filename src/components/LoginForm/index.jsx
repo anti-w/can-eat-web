@@ -45,7 +45,7 @@ export const LoginForm = ({ theme, toggleTheme }) => {
             }}
           >
             <Heading size="medium" as="h2">
-              Bem vindo!
+              Bem vindo (a)!
             </Heading>
             <div>
               <Toggle
@@ -64,7 +64,7 @@ export const LoginForm = ({ theme, toggleTheme }) => {
             </div>
           </div>
           <Heading size="small" as="h3">
-            Cadastre-se
+            Faça login
           </Heading>
         </Styled.HeadingContainer>
 
@@ -104,8 +104,8 @@ export const LoginForm = ({ theme, toggleTheme }) => {
             <Styled.FooterForm>
               <button type="submit"> Entrar</button>
               <p>
-                {`Você possui cadastro? `}{' '}
-                <a href="/register">Entre</a>{' '}
+                {`Não possui conta? `}{' '}
+                <a href="/register">Registrar</a>{' '}
               </p>
             </Styled.FooterForm>
           </Form>
