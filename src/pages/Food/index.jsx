@@ -1,6 +1,6 @@
 import P from 'prop-types';
 import * as Styled from './styles';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { CalculatorIcon } from '../../components/CalculatorIcon';
 import { CalculatorModal } from '../../components/CalculatorModal';
@@ -8,12 +8,35 @@ import { ContainerFlexFoodCard } from '../../components/ContainerFlexFoodCard';
 import { Menu } from '../../components/Menu';
 
 import { linksMock } from '../Home';
+import { FilterByGroup } from '../../components/FilterByGroup';
+import { FoodGroupGrid } from '../../components/FoodGroupGrid';
+import { getAllGroups } from '../../services/groups';
 
 const Food = ({ theme, toggleTheme }) => {
   const [
     displayCalculatorModal,
     setDisplayCalculatorModal,
   ] = useState(false);
+  const [displayFoodGroupGrid, setDisplayFoodGroupGrid] =
+    useState(false);
+  const [groups, setGroups] = useState([]);
+
+  const [selectedGroup, setSelectedGroup] = useState({
+    name: '',
+    srcImg: '',
+  });
+
+  const handleGroupSelect = (name, srcImg) => {
+    setSelectedGroup({ name, srcImg });
+    setDisplayFoodGroupGrid(false);
+  };
+  useEffect(() => {
+    (async () => {
+      const { data } = await getAllGroups();
+      setGroups(data);
+    })();
+  }, []);
+
   return (
     <Styled.Container
       displayCalculatorModal={displayCalculatorModal}
@@ -23,6 +46,19 @@ const Food = ({ theme, toggleTheme }) => {
         theme={theme}
         toggleTheme={toggleTheme}
       />
+      <FilterByGroup
+        displayFoodGroupGrid={displayFoodGroupGrid}
+        setDisplayFoodGroupGrid={setDisplayFoodGroupGrid}
+        selectedGroup={selectedGroup}
+      />
+      {displayFoodGroupGrid && (
+        <FoodGroupGrid
+          groups={groups}
+          handleGroupSelect={handleGroupSelect}
+          setDisplayFoodGroupGrid={setDisplayFoodGroupGrid}
+        />
+      )}
+
       <ContainerFlexFoodCard />
       <CalculatorIcon
         setDisplayCalculatorModal={

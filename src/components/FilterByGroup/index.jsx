@@ -5,26 +5,30 @@ import { getAllGroups } from '../../services/groups';
 import { useEffect, useState } from 'react';
 import { FoodGroup } from '../FoodGroup';
 
-export const FilterByGroup = () => {
-  const [groups, setGroups] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const { data } = await getAllGroups();
-      setGroups(data);
-    })();
-  }, []);
-
-  console.log(groups);
+export const FilterByGroup = ({
+  selectedGroup,
+  displayFoodGroupGrid,
+  setDisplayFoodGroupGrid,
+}) => {
   return (
-    <Styled.Container>
-      {groups.map((group) => (
-        <FoodGroup
-          key={group._id}
-          name={group.name}
-          srcImg={group.srcImg}
-        />
-      ))}
+    <Styled.Container
+      onClick={() =>
+        setDisplayFoodGroupGrid(!displayFoodGroupGrid)
+      }
+    >
+      <FoodGroup
+        name={selectedGroup.name}
+        srcImg={selectedGroup.srcImg}
+      />
     </Styled.Container>
   );
+};
+
+FilterByGroup.propTypes = {
+  selectedGroup: P.objectOf({
+    name: P.string,
+    srcImg: P.string,
+  }),
+  displayFoodGroupGrid: P.bool,
+  setDisplayFoodGroupGrid: P.func,
 };

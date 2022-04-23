@@ -19,7 +19,6 @@ export const ContainerFlexFoodCard = () => {
 
   return (
     <Styled.Container>
-      <FilterByGroup />
       {/* {dataForFront.map((food, i) => (
         <FlipCard key={i} dataForFront={food} />
       ))} */}
