@@ -1,8 +1,6 @@
 import P from 'prop-types';
 import * as Styled from './styles';
 
-import { getAllGroups } from '../../services/groups';
-import { useEffect, useState } from 'react';
 import { FoodGroup } from '../FoodGroup';
 
 export const FilterByGroup = ({

@@ -7,11 +7,16 @@ import { Toggle } from '../Toggle';
 import { FilterSquare } from '@styled-icons/bootstrap/FilterSquare';
 import { XSquareFill } from '@styled-icons/bootstrap/XSquareFill';
 import { Button } from '../Button';
+import { FilterByGroup } from '../FilterByGroup';
 
 export const Menu = ({
   links = [],
   theme,
   toggleTheme,
+  displayFoodGroupGrid,
+
+  setDisplayFoodGroupGrid,
+  selectedGroup,
 }) => {
   const [visible, setVisible] = useState(false);
   return (
@@ -22,6 +27,13 @@ export const Menu = ({
       >
         <Styled.MenuHeader>
           <h2>Logo</h2>
+          <FilterByGroup
+            displayFoodGroupGrid={displayFoodGroupGrid}
+            setDisplayFoodGroupGrid={
+              setDisplayFoodGroupGrid
+            }
+            selectedGroup={selectedGroup}
+          />
           <Styled.ButtonIcons>
             {visible ? (
               <XSquareFill
@@ -49,7 +61,15 @@ export const Menu = ({
       >
         <Styled.MenuContainer>
           {!visible && <h3>Logo</h3>}
-          <NavLink links={links} />
+          {!visible && (
+            <FilterByGroup
+              displayFoodGroupGrid={displayFoodGroupGrid}
+              setDisplayFoodGroupGrid={
+                setDisplayFoodGroupGrid
+              }
+              selectedGroup={selectedGroup}
+            />
+          )}
           <Styled.ButtonsContainer>
             {!visible && (
               <Button
@@ -76,4 +96,5 @@ export const Menu = ({
 
 Menu.propTypes = {
   ...NavLink.propTypes,
+  ...FilterByGroup.propTypes,
 };

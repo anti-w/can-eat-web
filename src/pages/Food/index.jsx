@@ -22,8 +22,9 @@ const Food = ({ theme, toggleTheme }) => {
   const [groups, setGroups] = useState([]);
 
   const [selectedGroup, setSelectedGroup] = useState({
-    name: '',
-    srcImg: '',
+    name: 'Todos os alimentos',
+    srcImg:
+      'https://cdn-icons-png.flaticon.com/512/1046/1046747.png',
   });
 
   const handleGroupSelect = (name, srcImg) => {
@@ -45,8 +46,6 @@ const Food = ({ theme, toggleTheme }) => {
         links={linksMock}
         theme={theme}
         toggleTheme={toggleTheme}
-      />
-      <FilterByGroup
         displayFoodGroupGrid={displayFoodGroupGrid}
         setDisplayFoodGroupGrid={setDisplayFoodGroupGrid}
         selectedGroup={selectedGroup}
