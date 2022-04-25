@@ -1,17 +1,19 @@
 import { useState } from 'react';
-import * as Styled from './styles';
+import * as Styled from '../Menu/styles';
 
-import { NavLink } from '../NavLink';
 import { Toggle } from '../Toggle';
 
 import { FilterSquare } from '@styled-icons/bootstrap/FilterSquare';
 import { XSquareFill } from '@styled-icons/bootstrap/XSquareFill';
 import { Button } from '../Button';
+import { FilterByGroup } from '../FilterByGroup';
 
-export const Menu = ({
-  links = [],
+export const MenuFood = ({
   theme,
   toggleTheme,
+  displayFoodGroupGrid,
+  setDisplayFoodGroupGrid,
+  selectedGroup,
 }) => {
   const [visible, setVisible] = useState(false);
   return (
@@ -22,6 +24,16 @@ export const Menu = ({
       >
         <Styled.MenuHeader>
           <h2>Logo</h2>
+          <Styled.Filter>
+            <FilterByGroup
+              displayFoodGroupGrid={displayFoodGroupGrid}
+              setDisplayFoodGroupGrid={
+                setDisplayFoodGroupGrid
+              }
+              selectedGroup={selectedGroup}
+            />
+          </Styled.Filter>
+
           <Styled.ButtonIcons>
             {visible ? (
               <XSquareFill
@@ -49,14 +61,18 @@ export const Menu = ({
       >
         <Styled.MenuContainer>
           {!visible && <h3>Logo</h3>}
-          {links.length > 0 && <NavLink links={links} />}
-          <Styled.ButtonsContainer>
-            {!visible && (
-              <Button
-                textInside="Registre-se"
-                typeAction="register"
+          {!visible && (
+            <Styled.Filter>
+              <FilterByGroup
+                displayFoodGroupGrid={displayFoodGroupGrid}
+                setDisplayFoodGroupGrid={
+                  setDisplayFoodGroupGrid
+                }
+                selectedGroup={selectedGroup}
               />
-            )}
+            </Styled.Filter>
+          )}
+          <Styled.ButtonsContainer>
             <Button
               textInside="Entrar"
               typeAction="login"
@@ -74,6 +90,6 @@ export const Menu = ({
   );
 };
 
-Menu.propTypes = {
-  ...NavLink.propTypes,
+MenuFood.propTypes = {
+  ...FilterByGroup.propTypes,
 };

@@ -10,7 +10,11 @@ export const FoodGroup = ({
     <Styled.Container
       onClick={() => handleGroupSelect(name, srcImg)}
     >
-      <img src={srcImg} width={36} height={36} />
+      <Styled.GroupIconContainer>
+        <Styled.GroupIcon src={srcImg} />
+      </Styled.GroupIconContainer>
+
+      {/* <img src={srcImg} width={30} /> */}
       <Styled.Label>{name}</Styled.Label>
     </Styled.Container>
   );

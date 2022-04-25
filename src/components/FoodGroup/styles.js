@@ -1,26 +1,41 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.li`
+export const Container = styled.div`
   ${({ theme }) => css`
     cursor: pointer;
+    opacity: 0.5;
+    padding: 0.5rem;
     display: flex;
-    padding: 0 0.3rem;
     max-width: 18rem;
-    height: 8.2rem;
     justify-content: space-between;
     align-items: center;
-    text-align: center;
-    border-radius: 8%;
+    text-align: left;
+    border-radius: 5%;
     &:hover {
       font-weight: bold;
+      opacity: 1;
     }
   `}
+`;
+
+export const GroupIconContainer = styled.div`
+  display: flex;
+  border-radius: 50%;
+  padding: 0.5rem;
+  background: white;
+  justify-content: center;
+  align-items: center;
+`;
+export const GroupIcon = styled.img`
+  width: 26px;
 `;
 
 export const Label = styled.label`
   ${({ theme }) => css`
     color: ${theme.primaryText};
-    font-size: 1.2rem;
-    width: 70%;
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    width: 75%;
+    cursor: pointer;
   `}
 `;

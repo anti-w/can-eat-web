@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const GroupsContainer = styled.ul`
   ${({ theme }) => css`
+    border: 1px solid gray;
     display: grid;
     height: 26rem;
     width: 90%;

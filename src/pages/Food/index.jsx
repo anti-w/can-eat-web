@@ -5,10 +5,9 @@ import { useEffect, useState } from 'react';
 import { CalculatorIcon } from '../../components/CalculatorIcon';
 import { CalculatorModal } from '../../components/CalculatorModal';
 import { ContainerFlexFoodCard } from '../../components/ContainerFlexFoodCard';
-import { Menu } from '../../components/Menu';
+import { MenuFood } from '../../components/MenuFood';
 
 import { linksMock } from '../Home';
-import { FilterByGroup } from '../../components/FilterByGroup';
 import { FoodGroupGrid } from '../../components/FoodGroupGrid';
 import { getAllGroups } from '../../services/groups';
 
@@ -42,8 +41,7 @@ const Food = ({ theme, toggleTheme }) => {
     <Styled.Container
       displayCalculatorModal={displayCalculatorModal}
     >
-      <Menu
-        links={linksMock}
+      <MenuFood
         theme={theme}
         toggleTheme={toggleTheme}
         displayFoodGroupGrid={displayFoodGroupGrid}
