@@ -17,16 +17,14 @@ export const FilterByGroup = ({
       <FoodGroup
         name={selectedGroup.name}
         srcImg={selectedGroup.srcImg}
+        handleGroupSelect={() => {}}
       />
     </Styled.Container>
   );
 };
 
 FilterByGroup.propTypes = {
-  selectedGroup: P.objectOf({
-    name: P.string,
-    srcImg: P.string,
-  }),
+  selectedGroup: P.object,
   displayFoodGroupGrid: P.bool,
   setDisplayFoodGroupGrid: P.func,
 };

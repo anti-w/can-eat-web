@@ -13,8 +13,6 @@ export const FoodGroup = ({
       <Styled.GroupIconContainer>
         <Styled.GroupIcon src={srcImg} />
       </Styled.GroupIconContainer>
-
-      {/* <img src={srcImg} width={30} /> */}
       <Styled.Label>{name}</Styled.Label>
     </Styled.Container>
   );
@@ -23,5 +21,5 @@ export const FoodGroup = ({
 FoodGroup.propTypes = {
   srcImg: P.string.isRequired,
   name: P.string.isRequired,
-  handleGroupSelect: P.func.isRequired,
+  handleGroupSelect: P.func,
 };

@@ -1,14 +1,13 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+export const FoodsContainer = styled.div`
   ${({ theme }) => css`
-    height: 100vh;
     display: flex;
-    border: 1px solid black;
-    padding-top: 5rem;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 3.5rem;
+    overflow: scroll;
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
 
     @media ${theme.media.lteMedium} {
     }

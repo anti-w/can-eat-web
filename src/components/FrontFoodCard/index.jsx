@@ -15,8 +15,6 @@ export const FrontFoodCard = ({
   const { order } = useContext(CalculatorContext);
   const { nome, grupoAlimentar, nutrientes } = data;
 
-  console.log(data);
-
   const {
     Energiakcal: cals,
     Proteínag: proteins,
