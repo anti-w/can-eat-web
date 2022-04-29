@@ -5,7 +5,7 @@ export const FoodsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding-top: 3.5rem;
-    overflow: scroll;
+    overflow: auto;
     justify-content: center;
     align-items: center;
 

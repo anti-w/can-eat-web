@@ -30,7 +30,16 @@ const Food = ({ theme, toggleTheme }) => {
   const handleGroupSelect = (name, srcImg) => {
     setSelectedGroup({ name, srcImg });
     setDisplayFoodGroupGrid(false);
+    setPage(0);
   };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   useEffect(() => {
     (async () => {
       const { data } = await getAllGroups();
@@ -75,14 +84,27 @@ const Food = ({ theme, toggleTheme }) => {
         />
       )}
       <div
-        style={{ display: 'flex', flexDirection: 'row' }}
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+        }}
       >
         <button
-          onClick={() => page > 0 && setPage(page - 1)}
+          onClick={() => {
+            if (page > 0) {
+              setPage(page - 1);
+              scrollToTop();
+            }
+          }}
         >
           Voltar
         </button>
-        <button onClick={() => setPage(page + 1)}>
+        <button
+          onClick={() => {
+            scrollToTop();
+            setPage(page + 1);
+          }}
+        >
           Avançar
         </button>
       </div>
