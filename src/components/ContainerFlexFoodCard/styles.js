@@ -4,12 +4,9 @@ export const FoodsContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-wrap: wrap;
-    padding-top: 3.5rem;
-    overflow: auto;
+    margin-top: 3.5rem;
     justify-content: center;
     align-items: center;
-
-    @media ${theme.media.lteMedium} {
-    }
+    overflow: auto;
   `}
 `;

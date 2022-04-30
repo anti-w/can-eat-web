@@ -33,13 +33,6 @@ const Food = ({ theme, toggleTheme }) => {
     setPage(0);
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
   useEffect(() => {
     (async () => {
       const { data } = await getAllGroups();
@@ -50,6 +43,7 @@ const Food = ({ theme, toggleTheme }) => {
   return (
     <Styled.Container
       displayCalculatorModal={displayCalculatorModal}
+      displayFoodGroupGrid={displayFoodGroupGrid}
     >
       <MenuFood
         theme={theme}
@@ -69,6 +63,7 @@ const Food = ({ theme, toggleTheme }) => {
       <ContainerFlexFoodCard
         selectedGroup={selectedGroup}
         page={page}
+        setPage={setPage}
       />
       <CalculatorIcon
         setDisplayCalculatorModal={
@@ -83,31 +78,6 @@ const Food = ({ theme, toggleTheme }) => {
           displayCalculatorModal={displayCalculatorModal}
         />
       )}
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-        }}
-      >
-        <button
-          onClick={() => {
-            if (page > 0) {
-              setPage(page - 1);
-              scrollToTop();
-            }
-          }}
-        >
-          Voltar
-        </button>
-        <button
-          onClick={() => {
-            scrollToTop();
-            setPage(page + 1);
-          }}
-        >
-          Avançar
-        </button>
-      </div>
     </Styled.Container>
   );
 };

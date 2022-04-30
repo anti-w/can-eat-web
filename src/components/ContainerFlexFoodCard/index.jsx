@@ -5,10 +5,12 @@ import { useEffect, useState } from 'react';
 import { FlipCard } from '../FlipCard';
 
 import { getFoodsByGroup } from '../../services/foods';
+import { PaginationButtons } from '../PaginationButtons';
 
 export const ContainerFlexFoodCard = ({
   selectedGroup,
   page,
+  setPage,
 }) => {
   const [dataForFront, setDataForFront] = useState([]);
 
@@ -27,11 +29,13 @@ export const ContainerFlexFoodCard = ({
       {dataForFront.map((food, i) => (
         <FlipCard key={i} dataForFront={food} />
       ))}
+
+      <PaginationButtons setPage={setPage} page={page} />
     </Styled.FoodsContainer>
   );
 };
 
 ContainerFlexFoodCard.propTypes = {
   selectedGroup: P.object,
-  page: P.number,
+  ...PaginationButtons.propTypes,
 };

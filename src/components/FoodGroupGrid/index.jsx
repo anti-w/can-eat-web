@@ -8,16 +8,18 @@ export const FoodGroupGrid = ({
   handleGroupSelect,
 }) => {
   return (
-    <Styled.GroupsContainer>
-      {groups.map((group) => (
-        <FoodGroup
-          key={group._id}
-          name={group.name}
-          srcImg={group.srcImg}
-          handleGroupSelect={handleGroupSelect}
-        />
-      ))}
-    </Styled.GroupsContainer>
+    <Styled.ModalContainer>
+      <Styled.GroupsContainer>
+        {groups.map((group) => (
+          <FoodGroup
+            key={group._id}
+            name={group.name}
+            srcImg={group.srcImg}
+            handleGroupSelect={handleGroupSelect}
+          />
+        ))}
+      </Styled.GroupsContainer>
+    </Styled.ModalContainer>
   );
 };
 
