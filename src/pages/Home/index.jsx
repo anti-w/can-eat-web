@@ -8,13 +8,13 @@ import { GridTeam } from '../../components/GridTeam';
 
 export const linksMock = [
   {
-    link: '#calculator',
-    children: 'Calcular',
+    link: 'foods',
+    children: 'Alimentos',
     newTab: false,
   },
   {
     link: '#infos',
-    children: 'Infos',
+    children: 'Informações',
     newTab: false,
   },
   {
