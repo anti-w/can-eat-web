@@ -15,7 +15,9 @@ export const FrontFoodCard = ({
   const { order } = useContext(CalculatorContext);
   const { nome, grupoAlimentar, nutrientes } = data;
 
-  console.log(data);
+  const foodName = nome.split(',');
+  let name = foodName.shift();
+  let desc = foodName.join(',');
 
   const {
     Energiakcal: cals,
@@ -34,8 +36,8 @@ export const FrontFoodCard = ({
   return (
     <Styled.Container>
       <Styled.TitleWithDescription>
-        <Heading size="xsmall">{nome}</Heading>
-        <h4>{grupoAlimentar}</h4>
+        <Heading size="xsmall">{name}</Heading>
+        <h4>{desc}</h4>
       </Styled.TitleWithDescription>
       <Styled.ButtonsContainer>
         <h4>{grams * 100 + 'g'}</h4>

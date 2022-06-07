@@ -1,37 +1,41 @@
-import { useEffect, useState } from 'react';
+import P from 'prop-types';
 import * as Styled from './styles';
+import { useEffect, useState } from 'react';
 
 import { FlipCard } from '../FlipCard';
-import { FilterByGroup } from '../FilterByGroup';
 
-import { getFoodsPerPages } from '../../services/foods';
+import { getFoodsByGroup } from '../../services/foods';
+import { PaginationButtons } from '../PaginationButtons';
 
-export const ContainerFlexFoodCard = () => {
+export const ContainerFlexFoodCard = ({
+  selectedGroup,
+  page,
+  setPage,
+}) => {
   const [dataForFront, setDataForFront] = useState([]);
-  const [pages, setPages] = useState(0);
 
   useEffect(() => {
     (async () => {
-      const { data } = await getFoodsPerPages(pages);
+      const { data } = await getFoodsByGroup(
+        selectedGroup.name,
+        page,
+      );
       setDataForFront(data);
     })();
-  }, [pages]);
+  }, [page, selectedGroup]);
 
   return (
-    <Styled.Container>
-      <FilterByGroup />
-      {/* {dataForFront.map((food, i) => (
+    <Styled.FoodsContainer>
+      {dataForFront.map((food, i) => (
         <FlipCard key={i} dataForFront={food} />
-      ))} */}
+      ))}
 
-      <button onClick={() => setPages(pages + 1)}>
-        Avançar
-      </button>
-      <button
-        onClick={() => pages > 0 && setPages(pages - 1)}
-      >
-        Voltar
-      </button>
-    </Styled.Container>
+      <PaginationButtons setPage={setPage} page={page} />
+    </Styled.FoodsContainer>
   );
+};
+
+ContainerFlexFoodCard.propTypes = {
+  selectedGroup: P.object,
+  ...PaginationButtons.propTypes,
 };

@@ -1,10 +1,18 @@
 import P from 'prop-types';
 import * as Styled from './styles';
 
-export const FoodGroup = ({ name, srcImg }) => {
+export const FoodGroup = ({
+  name,
+  srcImg,
+  handleGroupSelect,
+}) => {
   return (
-    <Styled.Container>
-      <img src={srcImg} width={36} height={36} />
+    <Styled.Container
+      onClick={() => handleGroupSelect(name, srcImg)}
+    >
+      <Styled.GroupIconContainer>
+        <Styled.GroupIcon src={srcImg} />
+      </Styled.GroupIconContainer>
       <Styled.Label>{name}</Styled.Label>
     </Styled.Container>
   );
@@ -13,4 +21,5 @@ export const FoodGroup = ({ name, srcImg }) => {
 FoodGroup.propTypes = {
   srcImg: P.string.isRequired,
   name: P.string.isRequired,
+  handleGroupSelect: P.func,
 };

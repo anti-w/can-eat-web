@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Container as FoodGroupContainer } from '../FoodGroup/styles';
 
 const menuVisible = () => css`
   visibility: visible;
@@ -95,4 +96,17 @@ export const ButtonIcons = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const Filter = styled.div`
+  ${FoodGroupContainer} {
+    opacity: 1;
+    font-weight: bold;
+    width: 15rem;
+
+    label {
+      font-size: 13px;
+      text-align: center;
+    }
+  }
 `;
