@@ -23,7 +23,7 @@ export const GridTeam = () => {
         />
         <MemberTeamCard
           linkedin="https://www.linkedin.com/in/lucas-vilela-oliveira/"
-          photo="https://avatarfiles.alphacoders.com/860/thumb-86002.png"
+          photo="https://avatarfiles.alphacoders.com/154/thumb-154305.png"
           gitHub="https://github.com/Lucaslvo"
           name="Lucas Vilela"
           role="UI/UX Designer"
