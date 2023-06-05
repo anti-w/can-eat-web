@@ -1,4 +1,4 @@
-# Can Eat - Em andamento -
+# Alimentos de A a Z -
 
 ## Sobre
 
